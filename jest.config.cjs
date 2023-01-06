@@ -6,14 +6,14 @@ module.exports = {
     "!src/mocks/**",
   ],
   coveragePathIgnorePatterns: [],
-  setupFilesAfterEnv: ["./config/jest/setupTests.js"],
+  setupFilesAfterEnv: ["./config/jest/setupTests.cjs"],
   testEnvironment: "jsdom",
   modulePaths: ["<rootDir>/src"],
   transform: {
     "^.+\\.(ts|js|tsx|jsx)$": "@swc/jest",
-    "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+    "^.+\\.css$": "<rootDir>/config/jest/cssTransform.cjs",
     "^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)":
-      "<rootDir>/config/jest/fileTransform.js",
+      "<rootDir>/config/jest/fileTransform.cjs",
   },
   transformIgnorePatterns: [
     "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$",
