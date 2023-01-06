@@ -31,7 +31,7 @@ const UnitConverterDisplay = (props: Props) => {
         className="dark:text-white block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
         htmlFor="fname"
       >
-        Converted to {props.label}
+        PX to {props.label}
       </label>
       <div className="flex flex-row justify-between items-center dark:text-white appearance-none block max-w-xl w-auto  text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
         <p>{text}</p>
