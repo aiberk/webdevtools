@@ -7,10 +7,10 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
+    <div className="h-screen dark:bg-zinc-900">
       <NavBar />
       <UnitConverter />
-    </>
+    </div>
   );
 }
 
