@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import UnitConverterInput from "../components/UnitConverterInput";
 import UnitConverterDisplay from "../components/UnitConverterDisplay";
 
 type Props = {};
