@@ -8,10 +8,19 @@ type Props = {
 };
 
 const UnitConverterDisplay = (props: Props) => {
-  const [clipboard, setClipboard] = useState("");
+  const [clipboard, setClipboard] = useState<string>("");
+  const [showMessage, setShowMessage] = useState<boolean>(false);
 
-  const myFunc = () => {
-    alert(`${props.label} clicked`);
+  const handleOnClick = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    event.preventDefault();
+    setShowMessage(true);
+    navigator.clipboard.writeText(convertedText);
+    setTimeout(() => {
+      // After 3 seconds set the show value to false
+      setShowMessage(false);
+    }, 1500);
   };
 
   let text = props.input * props.equation;
@@ -28,14 +37,20 @@ const UnitConverterDisplay = (props: Props) => {
         <p>{text}</p>
         <button
           onClick={(event) => {
-            event.preventDefault();
-            navigator.clipboard.writeText(convertedText);
+            handleOnClick(event);
           }}
           className="border-zinc-400 border p-0.5 rounded-sm text-xs"
         >
           Copy
         </button>
       </div>
+      {showMessage ? (
+        <div className="w-200 h-200 bg-pink-100 border border-pink-300 rounded-sm p-2 flex flex-row justify-center">
+          {convertedText} copied to clipboard!
+        </div>
+      ) : (
+        <></>
+      )}
     </>
   );
 };
