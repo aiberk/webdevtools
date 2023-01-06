@@ -13,7 +13,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={<UnitConverter />} />
-          <Route path="/test/" element={<h1>Hello</h1>} />
+          <Route path="/t/" element={<h1>Hello</h1>} />
         </Routes>
       </div>
     </BrowserRouter>
