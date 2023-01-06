@@ -7,7 +7,7 @@ type Props = {};
 const UnitTypes = [
   // { label: "PX", equation: 1 },
   { label: "CM", equation: 0.0264583333 },
-  { label: "MM", equation: 0.00264583333 },
+  { label: "MM", equation: 0.264583333 },
   { label: "IN", equation: 0.013888888888888888 },
   // { label: "REM", equation: 0.0625 },
   // { label: "EM", equation: 0.0625 },
@@ -59,9 +59,3 @@ const UnitConverter = (props: Props) => {
 };
 
 export default UnitConverter;
-
-// {sorted.map((item) => (
-//   //User reduce to filter out display=false
-//   //User reduce to filter out display=false
-//   <Card key={item.sys.id} item={item}></Card>
-// ))}
