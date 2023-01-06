@@ -2,7 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
-import UnitConverter from "./pages/UnitConverter";
+import UnitConverterPX from "./pages/UnitConverterPX";
+import UnitConverterREM from "./pages/UnitConverterREM";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -12,8 +13,8 @@ function App() {
       <div className="h-screen dark:bg-zinc-900">
         <NavBar />
         <Routes>
-          <Route path="/" element={<UnitConverter />} />
-          <Route path="/t/" element={<h1>Hello</h1>} />
+          <Route path="/" element={<UnitConverterPX />} />
+          <Route path="/rem/" element={<UnitConverterREM />} />
         </Routes>
       </div>
     </BrowserRouter>

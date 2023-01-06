@@ -45,6 +45,7 @@ const UnitConverter = (props: Props) => {
             {UnitTypes.map((item) => (
               <div>
                 <UnitConverterDisplay
+                  type={"PX"}
                   label={item.label}
                   input={amount1}
                   equation={item.equation}
