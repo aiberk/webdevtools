@@ -32,7 +32,7 @@ const UnitConverterDisplay = (props: Props) => {
         className="dark:text-white block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
         htmlFor="fname"
       >
-        {props.type} to {props.label}
+        {props.label} converted from {props.type}
       </label>
       <div className="flex flex-row justify-between items-center dark:text-white appearance-none block max-w-xl w-auto  text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
         <p>{text}</p>
@@ -47,11 +47,9 @@ const UnitConverterDisplay = (props: Props) => {
       </div>
       {showMessage ? (
         <div className="w-200 h-200 bg-pink-100 border border-pink-300 rounded-sm p-2 flex flex-row justify-center">
-          {convertedText} copied to clipboard!
+          {props.label} conversion: {convertedText} copied to clipboard.
         </div>
-      ) : (
-        <></>
-      )}
+      ) : undefined}
     </>
   );
 };

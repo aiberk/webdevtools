@@ -9,8 +9,10 @@ const UnitTypes = [
   { label: "CM", equation: 0.0264583333 },
   { label: "MM", equation: 0.264583333 },
   { label: "IN", equation: 0.013888888888888888 },
-  // { label: "REM", equation: 0.0625 },
-  // { label: "EM", equation: 0.0625 },
+  { label: "REM", equation: 0.0625 },
+  { label: "EM", equation: 0.0625 },
+  { label: "Light Years", equation: 0.0625 },
+  { label: "Planck Length", equation: 0.0625 },
 ];
 
 const UnitConverter = (props: Props) => {

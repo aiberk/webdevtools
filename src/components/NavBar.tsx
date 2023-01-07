@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import useDarkMode from "../hooks/useDarkMode";
 
 type Props = {};
@@ -16,8 +17,20 @@ function NavBar({}: Props) {
   return (
     <div className="w-screen  bg-black text-white flex flex-row justify-center gap-10 items-center p-2">
       <nav className="flex flex-row justify-between gap-10 items-center max-w-xl text-xs">
-        <a href="/"> PX Converter</a>
-        <a href="/rem/"> REM Converter</a>
+        <NavLink
+          className={({ isActive }) => (isActive ? "text-red-500" : undefined)}
+          to="/"
+        >
+          {" "}
+          PX Converter
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "text-red-500" : undefined)}
+          to="/rem/"
+        >
+          {" "}
+          REM Converter
+        </NavLink>
         <button
           className="bg-red-400 dark:bg-blue-500 ml-2 mr-2 p-2"
           onClick={handleOnClick}
