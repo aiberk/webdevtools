@@ -4,8 +4,9 @@ import CSSGeneratorInputMulti from "../components/CSSGenertorInputMulti";
 import CopyToClipBoard from "../components/CopyToClipBoard";
 import CSSGeneratorInputDropDown from "../components/CSSGeneratorDropDown";
 import { Lorem } from "../components/Constants";
+import { NavLink } from "react-router-dom";
 
-function CSSGenerator() {
+function CSSHeadingGenerator() {
   const [previewHeading, setPreviewHeading] = useState<string>("Heading");
   const [previewText, setPreviewText] = useState<string>(Lorem);
   const [color, setColor] = useState<string>("#000000");
@@ -49,11 +50,12 @@ function CSSGenerator() {
   let final = jsxToCss + ";";
 
   return (
-    <div className="flex md:flex-row-reverse flex-col  bg-zinc-100 ">
+    <div className="flex md:flex-row flex-col  bg-zinc-100 ">
+      <div className="hidden md:flex pt-11 min-h-screen bg-zinc-300 max-w-xs w-full  flex-col"></div>
       <div
-        className={`top-0 left-0  md:h-screen md:fixed  md:p-0  h-full w-full flex flex-col justify-center items-center`}
+        className={` md:h-screen   md:p-0  h-full w-full flex flex-col justify-center items-center`}
       >
-        <div className={`w-full max-w-lg `}>
+        <div className={`w-full max-w-lg overflow-hidden `}>
           <h1
             style={{
               ...cssStyle,
@@ -67,10 +69,9 @@ function CSSGenerator() {
           </span>
         </div>
       </div>
-      <br />
 
-      <div className=" bg-white p-5 z-10 md:pt-20">
-        <div className="flex  md:p-0 p-10 flex-col w-full md:max-w-sm max-w-xl gap-4 border border-zinc-200">
+      <div className=" bg-white p-5 z-10 md:pt-20 md:max-w-xs">
+        <div className="flex  md:p-0 p-10 flex-col w-full md:max-w-xs max-w-xl gap-4 border border-zinc-200">
           <CSSGeneratorInput
             unit={undefined}
             type="text"
@@ -152,4 +153,4 @@ function CSSGenerator() {
   );
 }
 
-export default CSSGenerator;
+export default CSSHeadingGenerator;

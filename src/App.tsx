@@ -4,7 +4,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import UnitConverterPX from "./pages/UnitConverterPX";
 import UnitConverterREM from "./pages/UnitConverterREM";
-import CSSGenerator from "./pages/CSSGenerator";
+import CSSHeadingGenerator from "./pages/CSSHeadingGenerator";
+import CSSTextGenerator from "./pages/CSSTextGenerator";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -16,7 +17,8 @@ function App() {
         <Routes>
           <Route path="/converter/px" element={<UnitConverterPX />} />
           <Route path="/converter/rem/" element={<UnitConverterREM />} />
-          <Route path="/generator/text" element={<CSSGenerator />} />
+          <Route path="/generator/heading" element={<CSSHeadingGenerator />} />
+          <Route path="/generator/text" element={<CSSTextGenerator />} />
         </Routes>
       </div>
     </BrowserRouter>
