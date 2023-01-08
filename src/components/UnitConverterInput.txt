@@ -29,3 +29,14 @@ const UnitConverterInput = (props: Props) => {
 };
 
 export default UnitConverterInput;
+
+
+
+{"color":"#2c2a2a",
+"fontSize":"68px",
+"letterSpacing":"2px",
+"fontWeight":"100",
+"fontStyle":"italic"}
+
+
+color:#923a3a; font-size:40px; letter-spacing:2px; font-weight:400; font-style:normal;
