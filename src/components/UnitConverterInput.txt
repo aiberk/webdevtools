@@ -40,3 +40,7 @@ export default UnitConverterInput;
 
 
 color:#923a3a; font-size:40px; letter-spacing:2px; font-weight:400; font-style:normal;
+
+color:#b62f2f; font-size:40px; 
+letter-spacing:25px; font-weight:100; 
+font-style:italic;
