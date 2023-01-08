@@ -28,7 +28,7 @@ const UnitConverterDisplay = (props: Props) => {
   let convertedText = text.toString();
   return (
     <>
-      <div className="max-w-lg flex flex-row justify-between items-center dark:text-white appearance-none w-auto  text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+      <div className="flex flex-row justify-between items-center dark:text-white appearance-none w-auto  text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
         <code className="truncate">{text}</code>
         <button
           onClick={(event) => {
