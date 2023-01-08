@@ -49,9 +49,9 @@ function CSSGenerator() {
   let final = jsxToCss + ";";
 
   return (
-    <div className="flex md:flex-row flex-col justify-center items-center bg-zinc-100 ">
+    <div className="flex md:flex-row-reverse flex-col  bg-zinc-100 ">
       <div
-        className={`overflow-hidden md:h-screen  md:p-0 p-10 h-full w-full flex flex-col justify-center items-center`}
+        className={`top-0 left-0  md:h-screen md:fixed  md:p-0  h-full w-full flex flex-col justify-center items-center`}
       >
         <div className={`w-full max-w-lg `}>
           <h1
@@ -69,7 +69,7 @@ function CSSGenerator() {
       </div>
       <br />
 
-      <div className=" bg-white p-5">
+      <div className=" bg-white p-5 z-10 md:pt-20">
         <div className="flex  md:p-0 p-10 flex-col w-full md:max-w-sm max-w-xl gap-4 border border-zinc-200">
           <CSSGeneratorInput
             unit={undefined}

@@ -19,7 +19,7 @@ const UnitConverter = (props: Props) => {
   const [amount1, setAmount1] = useState(0);
   return (
     <>
-      <div className="flex flex-col justify-center items-center ">
+      <div className="flex flex-col justify-center items-center pt-10">
         <form className="flex flex-col p-10 w-full max-w-xl gap-2">
           <label
             className="block uppercase tracking-wide dark:text-white text-gray-700 text-xs font-bold mb-2"

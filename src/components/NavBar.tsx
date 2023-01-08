@@ -15,7 +15,7 @@ function NavBar({}: Props) {
   };
 
   return (
-    <div className="w-screen  bg-black text-white flex flex-row justify-center gap-10 items-center pt-2 pb-2 pl-10 pr-10">
+    <div className="z-20 w-screen fixed  bg-black text-white flex flex-row justify-center gap-10 items-center pt-2 pb-2 pl-10 pr-10">
       <nav className="flex flex-row justify-between gap-10 items-center w-full max-w-lg text-xs">
         <div className="group ">
           <h1>Converters</h1>
