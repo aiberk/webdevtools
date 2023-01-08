@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import UnitConverterPX from "./pages/UnitConverterPX";
 import UnitConverterREM from "./pages/UnitConverterREM";
+import CSSGenerator from "./pages/CSSGenerator";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -13,8 +14,9 @@ function App() {
       <div className="h-screen dark:bg-zinc-900">
         <NavBar />
         <Routes>
-          <Route path="/" element={<UnitConverterPX />} />
-          <Route path="/rem/" element={<UnitConverterREM />} />
+          <Route path="/converter/px" element={<UnitConverterPX />} />
+          <Route path="/converter/rem/" element={<UnitConverterREM />} />
+          <Route path="/generator/" element={<CSSGenerator />} />
         </Routes>
       </div>
     </BrowserRouter>
