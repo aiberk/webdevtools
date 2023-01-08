@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 function CSSGenerator() {
   const [color, setColor] = useState("#000000");
-  const [fontSize, setFontSize] = useState("16px");
+  const [fontSize, setFontSize] = useState("50px");
 
   const generateCSS = () => {
     const css = `
@@ -19,8 +19,14 @@ function CSSGenerator() {
   //   };
 
   return (
-    <div>
-      <form>
+    <div className="flex flex-col justify-center items-center ">
+      <div
+        className={`w-full h-60 flex justify-center items-center bg-zinc-100`}
+        style={{ color: color, fontSize: `${fontSize}` }}
+      >
+        <h1>Sample Text</h1>
+      </div>
+      <form className="flex flex-col p-10 w-full max-w-xl gap-2">
         <label>
           Color:
           <input
@@ -40,10 +46,12 @@ function CSSGenerator() {
         </label>
       </form>
       <br />
-      <button>Copy CSS</button>
+      {/* <button>Copy CSS</button>
       <br />
-      <br />
-      <textarea value={generateCSS()} readOnly />
+      <br /> */}
+      {/* <textarea value={generateCSS()} readOnly /> */}
+      <code>{`color:${color}`}</code>
+      <code>{`font-size:${fontSize}`}</code>
     </div>
   );
 }

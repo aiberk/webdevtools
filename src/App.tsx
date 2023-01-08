@@ -16,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/converter/px" element={<UnitConverterPX />} />
           <Route path="/converter/rem/" element={<UnitConverterREM />} />
-          <Route path="/generator/" element={<CSSGenerator />} />
+          <Route path="/generator/text" element={<CSSGenerator />} />
         </Routes>
       </div>
     </BrowserRouter>

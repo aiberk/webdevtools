@@ -19,10 +19,10 @@ function NavBar({}: Props) {
       <nav className="flex flex-row justify-between gap-10 items-center w-full max-w-lg text-xs">
         <div className="group ">
           <h1>Converters</h1>
-          <div className="w-auto absolute hidden z-1 group-hover:flex flex-col bg-zinc-400 p-2 gap-2">
+          <div className="w-auto p-4 h-auto absolute hidden  z-1 group-hover:flex flex-col bg-zinc-800  gap-4">
             <NavLink
               className={({ isActive }) =>
-                isActive ? "text-red-500" : undefined
+                isActive ? "text-red-300" : undefined
               }
               to="/converter/px"
             >
@@ -32,7 +32,7 @@ function NavBar({}: Props) {
 
             <NavLink
               className={({ isActive }) =>
-                isActive ? "text-red-500" : undefined
+                isActive ? "text-red-300" : undefined
               }
               to="/converter/rem/"
             >
@@ -44,10 +44,10 @@ function NavBar({}: Props) {
 
         <div className="group ">
           <h1>Generators</h1>
-          <div className="w-auto absolute hidden z-1 group-hover:flex flex-col bg-zinc-400 p-2 gap-2">
+          <div className="w-auto p-4 h-auto absolute hidden  z-1 group-hover:flex flex-col bg-zinc-800  gap-4">
             <NavLink
               className={({ isActive }) =>
-                isActive ? "text-red-500" : undefined
+                isActive ? "text-red-300" : undefined
               }
               to="/generator/text"
             >
@@ -57,7 +57,7 @@ function NavBar({}: Props) {
 
             <NavLink
               className={({ isActive }) =>
-                isActive ? "text-red-500" : undefined
+                isActive ? "text-red-300" : undefined
               }
               to="/generator/shadow"
             >
