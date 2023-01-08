@@ -33,7 +33,7 @@ const UnitConverter = (props: Props) => {
             name="fname"
             placeholder="0"
             onChange={(e) => {
-              setAmount1(e.target.value);
+              setAmount1(parseFloat(e.target.value));
             }}
           />
           <sub className="block uppercase tracking-wide dark:text-white text-gray-700 text-xs font-bold">
