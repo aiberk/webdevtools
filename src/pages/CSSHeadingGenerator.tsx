@@ -113,7 +113,7 @@ function CSSHeadingGenerator() {
               setEditorStatus("preview");
             }}
           >
-            Preview
+            Artboard
           </button>
         </div>
 

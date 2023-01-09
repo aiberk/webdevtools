@@ -18,8 +18,11 @@ function App() {
         <Routes>
           <Route path="/converter/px" element={<UnitConverterPX />} />
           <Route path="/converter/rem/" element={<UnitConverterREM />} />
-          <Route path="/generator/heading" element={<CSSHeadingGenerator />} />
-          <Route path="/generator/text" element={<CSSTextGenerator />} />
+          <Route
+            path="/generator/text-styling"
+            element={<CSSHeadingGenerator />}
+          />
+
           <Route path="/" element={<Home />} />
         </Routes>
       </div>

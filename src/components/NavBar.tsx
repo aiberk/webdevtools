@@ -116,9 +116,9 @@ function NavBar({}: Props) {
             className={({ isActive }) =>
               isActive ? "text-red-500" : undefined
             }
-            to="/generator/heading"
+            to="/generator/text-styling"
           >
-            Heading Generator
+            CSS Text Styling Generator
           </NavLink>
         </div>
       </nav>
