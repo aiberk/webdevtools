@@ -38,7 +38,7 @@ const UnitConverter = (props: Props) => {
           />
           <sub className="block uppercase tracking-wide dark:text-white text-gray-700 text-xs font-bold">
             {" "}
-            Set 72 DPI
+            Set 72 DPI, 16px Base
           </sub>
           <div className=" mt-10 flex flex-col gap-5">
             {" "}
