@@ -16,7 +16,7 @@ function NavBar({}: Props) {
 
   return (
     <>
-      <div className="z-20 w-screen fixed  bg-black text-white flex flex-row justify-between gap-10 items-center pt-2 pb-2 pl-2 pr-2">
+      <div className="z-20 w-screen fixed  bg-zinc-800 text-white flex flex-row justify-between gap-10 items-center pt-2 pb-2 pl-2 pr-2">
         <nav className="flex flex-row justify-between gap-10 items-center w-full  text-xs">
           {/* <div className="group hidden ">
             <h1>Converters</h1>
@@ -67,7 +67,9 @@ function NavBar({}: Props) {
               </NavLink>
             </div>
           </div> */}
-          <h1 className="text-lg font-semibold">Web Dev Pocket Knife</h1>
+          <NavLink className="text-lg font-semibold" to="/">
+            Web Dev Tool Box <span className="text-2xl p-1">🧰</span>
+          </NavLink>
 
           <button
             className="bg-red-400 dark:bg-blue-500 ml-2 mr-2 p-2"
@@ -117,16 +119,6 @@ function NavBar({}: Props) {
             to="/generator/heading"
           >
             Heading Generator
-          </NavLink>
-        </div>
-        <div className="w-full  border-b p-4 dark:text-white">
-          <NavLink
-            className={({ isActive }) =>
-              isActive ? "text-red-500" : undefined
-            }
-            to="/generator/text"
-          >
-            Another Generator
           </NavLink>
         </div>
       </nav>

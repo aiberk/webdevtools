@@ -9,16 +9,27 @@ const Home = (props: Props) => {
     <>
       <div className="h-full pt-20 bg-white dark:bg-zinc-900 dark:text-white flex flex-col items-center justify-left text-left">
         <div className="flex flex-col gap-2">
-          <h1 className="text-3xl">Welcome to Web Dev Swiss Knife</h1>
-          <p className="text-xl text-">
-            Web Dev Swiss Knife is a simple tool to accomplish web design tasks.
+          <h1 className="text-3xl">
+            Welcome to Web Dev Tool Box <span className="text-4xl p-1">🧰</span>
+          </h1>
+
+          <p className="text-xl">
+            Web Dev Tool Box is a simple tool to accomplish web design tasks.
           </p>
-          <p className="text-xl text-">suchs as:</p>
-          <ul>
-            <li>Converting units</li>
-            <li>Generating CSS for text</li>
-            <li>Generating CSS shadows</li>
-          </ul>
+          <br />
+          <p className="text-xl font-semibold">Current Tools:</p>
+          <ol>
+            <li>PX unit converter</li>
+            <li>REM unit converter</li>
+            <li>Heading and Paragraph CSS generator</li>
+          </ol>
+          <br />
+          <p className="text-xl font-semibold">Upcoming Tools:</p>
+          <ol>
+            <li>Shadow CSS Generator</li>
+            <li>Layout Generator</li>
+            <li>Export Types</li>
+          </ol>
         </div>
       </div>
     </>
