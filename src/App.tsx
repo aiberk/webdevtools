@@ -6,6 +6,7 @@ import UnitConverterPX from "./pages/UnitConverterPX";
 import UnitConverterREM from "./pages/UnitConverterREM";
 import CSSHeadingGenerator from "./pages/CSSHeadingGenerator";
 import CSSTextGenerator from "./pages/CSSTextGenerator";
+import Home from "./pages/Home";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -19,6 +20,7 @@ function App() {
           <Route path="/converter/rem/" element={<UnitConverterREM />} />
           <Route path="/generator/heading" element={<CSSHeadingGenerator />} />
           <Route path="/generator/text" element={<CSSTextGenerator />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </div>
     </BrowserRouter>

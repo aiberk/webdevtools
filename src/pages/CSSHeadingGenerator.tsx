@@ -9,6 +9,9 @@ import { NavLink } from "react-router-dom";
 function CSSHeadingGenerator() {
   const [previewHeading, setPreviewHeading] = useState<string>("Heading");
   const [previewText, setPreviewText] = useState<string>(Lorem);
+  const [editorStatus, setEditorStatus] = useState<string>("heading");
+  const [artBoard, setArtBoard] = useState<string>("rgb(255,255,255)");
+
   const [color, setColor] = useState<string>("#000000");
   const [fontSize, setFontSize] = useState<string>("40");
   const [tracking, setTracking] = useState<string>("2");
@@ -16,8 +19,15 @@ function CSSHeadingGenerator() {
   const [style, setStyle] = useState<string>("normal");
   const [headingAlign, setHeadingAlign] = useState<string>("left");
 
+  const [paragraphcolor, setParagraphColor] = useState<string>("#000000");
+  const [paragraphfontSize, setParagraphFontSize] = useState<string>("16");
+  const [paragraphtracking, setParagraphTracking] = useState<string>("0");
+  const [paragraphweight, setParagraphWeight] = useState(400);
+  const [paragraphstyle, setParagraphStyle] = useState<string>("normal");
+  const [paragraphAlign, setParagraphAlign] = useState<string>("left");
+
   const styleChildren = ["normal", "italic", "oblique"];
-  const alignChildren = ["center", "left", "right", "justify"];
+  const alignChildren = ["left", "center", "right"];
   const weightChildren = [100, 200, 300, 400, 500, 600, 700, 800, 900];
 
   const generateCSS = () => {
@@ -38,6 +48,15 @@ function CSSHeadingGenerator() {
     textAlign: `${headingAlign}`,
   };
 
+  let paragraphcssStyle = {
+    color: paragraphcolor,
+    fontSize: `${paragraphfontSize}px`,
+    letterSpacing: `${paragraphtracking}px`,
+    fontWeight: `${paragraphweight}`,
+    fontStyle: `${paragraphstyle}`,
+    textAlign: `${paragraphAlign}`,
+  };
+
   let regex = /["'{}]/g;
   let regex2 = /[,]/g;
   let cssStyleString = JSON.stringify(cssStyle);
@@ -50,13 +69,20 @@ function CSSHeadingGenerator() {
   let final = jsxToCss + ";";
 
   return (
-    <div className="flex md:flex-row flex-col  bg-zinc-100 ">
-      <div className="hidden md:flex pt-11 min-h-screen bg-zinc-300 max-w-xs w-full  flex-col"></div>
+    <div className="flex md:flex-row flex-col  bg-zinc-200 dark:bg-zinc-700 ">
+      <div className="hidden md:flex pt-11 min-h-screen max-w-xs w-full  flex-col"></div>
       <div
-        className={` md:h-screen   md:p-0  h-full w-full flex flex-col justify-center items-center`}
+        className={`overflow-hidden md:h-screen   md:p-0  h-full w-full flex flex-col justify-center items-center`}
       >
-        <div className={`w-full max-w-lg overflow-hidden `}>
+        <div
+          className={`w-full max-w-2xl overflow-hidden p-20`}
+          style={{
+            backgroundColor: `${artBoard}`,
+            boxShadow: `0px -1px 5px 1px rgba(0,0,0,0.2)`,
+          }}
+        >
           <h1
+            className=""
             style={{
               ...cssStyle,
             }}
@@ -65,89 +91,180 @@ function CSSHeadingGenerator() {
           </h1>
           <span>
             {" "}
-            <p>{previewText}</p>
+            <p
+              style={{
+                ...paragraphcssStyle,
+              }}
+            >
+              {previewText}
+            </p>
           </span>
         </div>
       </div>
 
-      <div className=" bg-white p-5 z-10 md:pt-20 md:max-w-xs">
-        <div className="flex  md:p-0 p-10 flex-col w-full md:max-w-xs max-w-xl gap-4 border border-zinc-200">
-          <CSSGeneratorInput
-            unit={undefined}
-            type="text"
-            label={"Change Preview Heading"}
-            value={previewHeading}
-            changeCSS={(css) => setPreviewHeading(css)}
-          />
-          <CSSGeneratorInput
-            unit={undefined}
-            type="text"
-            label={"Change Preview Text"}
-            value={previewText}
-            changeCSS={(css) => setPreviewText(css)}
-          />
-          <CopyToClipBoard
-            label={"Get CSS"}
-            input={final}
-            equation={0}
-            type={""}
-          />
+      <div className=" bg-white p-5 z-10 md:pt-20 md:max-w-xs dark:bg-zinc-800">
+        <CopyToClipBoard
+          label={"Get CSS"}
+          input={final}
+          equation={0}
+          type={""}
+        />
+        <div className="flex flex-row mt-2 mb-6">
+          <button
+            className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-1 px-2 rounded-l"
+            onClick={() => {
+              setEditorStatus("heading");
+            }}
+          >
+            Heading
+          </button>
+          <button
+            className={`bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-1 px-2`}
+            onClick={() => {
+              setEditorStatus("paragraph");
+            }}
+          >
+            Paragraph
+          </button>
+          <button
+            className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-1 px-2 rounded-r"
+            onClick={() => {
+              setEditorStatus("preview");
+            }}
+          >
+            Preview
+          </button>
         </div>
-        <div className="flex flex-col md:p-0 p-10 w-full max-w-xl gap-4">
-          <CSSGeneratorInput
-            unit={"px"}
-            type="number"
-            label={"font size"}
-            value={fontSize}
-            changeCSS={(css) => setFontSize(css)}
-          />
 
-          <CSSGeneratorInput
-            unit={"rgb"}
-            type="color"
-            label={"Color"}
-            value={color}
-            changeCSS={(css) => setColor(css)}
-          />
+        {editorStatus == "preview" ? (
+          <div className="flex  md:p-0 p-10 flex-col w-full md:max-w-xs gap-4  ">
+            <CSSGeneratorInput
+              unit={undefined}
+              type="text"
+              label={"Change Preview Heading"}
+              value={previewHeading}
+              changeCSS={(css) => setPreviewHeading(css)}
+            />
+            <CSSGeneratorInput
+              unit={undefined}
+              type="text"
+              label={"Change Preview Text"}
+              value={previewText}
+              changeCSS={(css) => setPreviewText(css)}
+            />
+            <CSSGeneratorInput
+              unit={"rgb"}
+              type="color"
+              label={"Artboard Color"}
+              value={artBoard}
+              changeCSS={(css) => setArtBoard(css)}
+            />
+          </div>
+        ) : undefined}
 
-          <CSSGeneratorInput
-            unit={"px"}
-            type="number"
-            label={"Letter Spacing"}
-            value={tracking}
-            changeCSS={(css) => setTracking(css)}
-          />
+        {editorStatus == "heading" ? (
+          <div className="flex flex-col md:p-0 p-10 w-full max-w-xl gap-4">
+            <CSSGeneratorInput
+              unit={"px"}
+              type="number"
+              label={"Heading Font size"}
+              value={fontSize}
+              changeCSS={(css) => setFontSize(css)}
+            />
 
-          <CSSGeneratorInputMulti
-            type="radio"
-            label={"Font Style"}
-            changeCSS={(css) => setStyle(css)}
-            children={styleChildren}
-            name={"Font Style"}
-          />
+            <CSSGeneratorInput
+              unit={"rgb"}
+              type="color"
+              label={"Heading Color"}
+              value={color}
+              changeCSS={(css) => setColor(css)}
+            />
 
-          <CSSGeneratorInputMulti
-            type="radio"
-            label={"Heading Align"}
-            changeCSS={(css) => setHeadingAlign(css)}
-            children={alignChildren}
-            name={"Heading Align"}
-          />
-          <CSSGeneratorInputDropDown
-            label={"Font Style"}
-            changeCSS={(css) => setStyle(css)}
-            children={styleChildren}
-            name={"Font Style"}
-          />
+            <CSSGeneratorInput
+              unit={"px"}
+              type="number"
+              label={"Heading Letter Spacing"}
+              value={tracking}
+              changeCSS={(css) => setTracking(css)}
+            />
 
-          <CSSGeneratorInputMulti
-            type="radio"
-            label={"Font Weight"}
-            changeCSS={(css) => setWeight(css)}
-            children={weightChildren}
-            name={"Font Style"}
-          />
-        </div>
+            <CSSGeneratorInputMulti
+              type="radio"
+              label={"Heading Font Style"}
+              changeCSS={(css) => setStyle(css)}
+              children={styleChildren}
+              name={"Font Style"}
+            />
+
+            <CSSGeneratorInputMulti
+              type="radio"
+              label={"Heading Align"}
+              changeCSS={(css) => setHeadingAlign(css)}
+              children={alignChildren}
+              name={"Heading Align"}
+            />
+
+            <CSSGeneratorInputMulti
+              type="radio"
+              label={"Heading Font Weight"}
+              changeCSS={(css) => setWeight(css)}
+              children={weightChildren}
+              name={"Font Style"}
+            />
+          </div>
+        ) : undefined}
+
+        {editorStatus == "paragraph" ? (
+          <div className="flex flex-col md:p-0 p-10 w-full max-w-xl gap-4">
+            <CSSGeneratorInput
+              unit={"px"}
+              type="number"
+              label={"paragraph font size"}
+              value={paragraphfontSize}
+              changeCSS={(css) => setParagraphFontSize(css)}
+            />
+
+            <CSSGeneratorInput
+              unit={"rgb"}
+              type="color"
+              label={"paragraph Color"}
+              value={paragraphcolor}
+              changeCSS={(css) => setParagraphColor(css)}
+            />
+
+            <CSSGeneratorInput
+              unit={"px"}
+              type="number"
+              label={"paragraph Letter Spacing"}
+              value={paragraphtracking}
+              changeCSS={(css) => setParagraphTracking(css)}
+            />
+
+            <CSSGeneratorInputMulti
+              type="radio"
+              label={"paragraph Font Style"}
+              changeCSS={(css) => setParagraphStyle(css)}
+              children={styleChildren}
+              name={"Font Style"}
+            />
+
+            <CSSGeneratorInputMulti
+              type="radio"
+              label={"paragraph Font Weight"}
+              changeCSS={(css) => setParagraphWeight(css)}
+              children={weightChildren}
+              name={"Font Style"}
+            />
+
+            <CSSGeneratorInputMulti
+              type="radio"
+              label={"Paragraph Align"}
+              changeCSS={(css) => setParagraphAlign(css)}
+              children={alignChildren}
+              name={"Paragraph Align"}
+            />
+          </div>
+        ) : undefined}
       </div>
     </div>
   );

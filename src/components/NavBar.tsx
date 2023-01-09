@@ -77,13 +77,13 @@ function NavBar({}: Props) {
         </nav>
       </div>
 
-      <nav className=" fixed  hidden md:flex pt-11 min-h-screen bg-zinc-300 max-w-xs w-full  flex-col">
-        <div className="w-full  border-t border-b border-zinc-400 p-4 bg-zinc-800 text-zinc-300">
+      <nav className=" fixed  hidden lg:flex pt-11 min-h-screen bg-zinc-300 max-w-xs w-full  flex-col">
+        <div className="w-full   border-t border-b border-zinc-400  dark:border-white p-4 bg-zinc-800 text-zinc-300">
           <h1>
             <strong>Unit Converters</strong>
           </h1>
         </div>
-        <div className="w-full  border-b border-zinc-400 p-4">
+        <div className="w-full  border-b p-4">
           <NavLink
             className={({ isActive }) =>
               isActive ? "text-red-500" : undefined
@@ -93,7 +93,7 @@ function NavBar({}: Props) {
             PX to Anything
           </NavLink>
         </div>
-        <div className="w-full  border-b border-zinc-400 p-4">
+        <div className="w-full  border-b p-4">
           <NavLink
             className={({ isActive }) =>
               isActive ? "text-red-500" : undefined
@@ -103,12 +103,12 @@ function NavBar({}: Props) {
             REM to Anything
           </NavLink>
         </div>
-        <div className="w-full  border-t border-b border-zinc-400 p-4 bg-zinc-800 text-zinc-300">
+        <div className="w-full  border-t border-b p-4 bg-zinc-800 text-zinc-300">
           <h1>
             <strong>CSS Generators</strong>
           </h1>
         </div>
-        <div className="w-full  border-b border-zinc-400 p-4">
+        <div className="w-full  border-b  p-4">
           <NavLink
             className={({ isActive }) =>
               isActive ? "text-red-500" : undefined
@@ -118,7 +118,7 @@ function NavBar({}: Props) {
             Heading Generator
           </NavLink>
         </div>
-        <div className="w-full  border-b border-zinc-400 p-4">
+        <div className="w-full  border-b p-4">
           <NavLink
             className={({ isActive }) =>
               isActive ? "text-red-500" : undefined

@@ -28,15 +28,15 @@ const UnitConverterDisplay = (props: Props) => {
   let convertedText = text.toString();
   return (
     <>
-      <div className="flex flex-row justify-between items-center dark:text-white appearance-none w-auto  text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-        <code className="truncate">{text}</code>
+      <div className="md:max-w-xs  flex flex-row justify-center hover:bg-zinc-500  dark:hover:text-white items-center dark:text-white appearance-none   text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+        {/* <code className="truncate">{text}</code> */}
         <button
           onClick={(event) => {
             handleOnClick(event);
           }}
-          className="border-zinc-400 border p-0.5 rounded-sm text-xs"
+          className=" p-0.5 rounded-sm text-xs"
         >
-          Copy
+          Copy CSS
         </button>
       </div>
       {showMessage ? (

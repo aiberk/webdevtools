@@ -10,35 +10,38 @@ type Props = {
 
 const CSSGeneratorInputMulti = (props: Props) => {
   return (
-    <form className=" flex flex-col gap-1 border border-zinc-200 p-4 rounded-md">
+    <div className="mb-4">
       <label
         htmlFor={props.name}
         className="dark:text-white block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
       >
         {props.label}
       </label>
-      <div className=" flex flex-row gap-4">
-        {props.children.map((child) => {
-          return (
-            <div>
-              <label
-                htmlFor={child}
-                className="dark:text-white block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              >
-                {child}
-              </label>
-              <input
-                onChange={(e) => props.changeCSS(e.target.value)}
-                type={props.type}
-                id={child}
-                value={child}
-                name={props.label}
-              />
-            </div>
-          );
-        })}
-      </div>
-    </form>
+      <form className=" flex flex-col gap-1 border border-zinc-200 p-4 rounded-md">
+        <div className=" flex flex-row gap-4 flex-wrap">
+          {props.children.map((child) => {
+            return (
+              <div>
+                <label
+                  htmlFor={child}
+                  className="dark:text-white block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                >
+                  {child}
+                </label>
+                <input
+                  className="w-5 h-5"
+                  onChange={(e) => props.changeCSS(e.target.value)}
+                  type={props.type}
+                  id={child}
+                  value={child}
+                  name={props.label}
+                />
+              </div>
+            );
+          })}
+        </div>
+      </form>
+    </div>
   );
 };
 
