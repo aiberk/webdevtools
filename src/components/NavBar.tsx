@@ -16,9 +16,9 @@ function NavBar({}: Props) {
 
   return (
     <>
-      <div className="z-20 w-screen fixed  bg-black text-white flex flex-row justify-center gap-10 items-center pt-2 pb-2 pl-10 pr-10">
-        <nav className="flex flex-row justify-between gap-10 items-center w-full max-w-lg text-xs">
-          <div className="group ">
+      <div className="z-20 w-screen fixed  bg-black text-white flex flex-row justify-between gap-10 items-center pt-2 pb-2 pl-2 pr-2">
+        <nav className="flex flex-row justify-between gap-10 items-center w-full  text-xs">
+          {/* <div className="group hidden ">
             <h1>Converters</h1>
             <div className="w-auto p-4 h-auto absolute hidden  z-1 group-hover:flex flex-col bg-zinc-800  gap-4">
               <NavLink
@@ -43,7 +43,7 @@ function NavBar({}: Props) {
             </div>
           </div>
 
-          <div className="group ">
+          <div className="group hidden ">
             <h1>Generators</h1>
             <div className="w-auto p-4 h-auto absolute hidden  z-1 group-hover:flex flex-col bg-zinc-800  gap-4">
               <NavLink
@@ -66,7 +66,8 @@ function NavBar({}: Props) {
                 Shadow Generator
               </NavLink>
             </div>
-          </div>
+          </div> */}
+          <h1 className="text-lg font-semibold">Web Dev Pocket Knife</h1>
 
           <button
             className="bg-red-400 dark:bg-blue-500 ml-2 mr-2 p-2"
@@ -77,13 +78,13 @@ function NavBar({}: Props) {
         </nav>
       </div>
 
-      <nav className=" fixed  hidden lg:flex pt-11 min-h-screen bg-zinc-300 max-w-xs w-full  flex-col">
-        <div className="w-full   border-t border-b border-zinc-400  dark:border-white p-4 bg-zinc-800 text-zinc-300">
+      <nav className=" fixed  hidden lg:flex pt-11 min-h-screen bg-zinc-100 dark:bg-zinc-800 max-w-xs w-full  flex-col">
+        <div className="w-full   border-t border-b border-zinc-200  dark:border-white p-2 dark:text-white">
           <h1>
             <strong>Unit Converters</strong>
           </h1>
         </div>
-        <div className="w-full  border-b p-4">
+        <div className="w-full  border-b p-4 dark:text-white">
           <NavLink
             className={({ isActive }) =>
               isActive ? "text-red-500" : undefined
@@ -93,7 +94,7 @@ function NavBar({}: Props) {
             PX to Anything
           </NavLink>
         </div>
-        <div className="w-full  border-b p-4">
+        <div className="w-full  border-b p-4 dark:text-white">
           <NavLink
             className={({ isActive }) =>
               isActive ? "text-red-500" : undefined
@@ -103,12 +104,12 @@ function NavBar({}: Props) {
             REM to Anything
           </NavLink>
         </div>
-        <div className="w-full  border-t border-b p-4 bg-zinc-800 text-zinc-300">
+        <div className="w-full   border-t border-b border-zinc-200  dark:border-white p-2 dark:text-white">
           <h1>
             <strong>CSS Generators</strong>
           </h1>
         </div>
-        <div className="w-full  border-b  p-4">
+        <div className="w-full  border-b p-4 dark:text-white">
           <NavLink
             className={({ isActive }) =>
               isActive ? "text-red-500" : undefined
@@ -118,7 +119,7 @@ function NavBar({}: Props) {
             Heading Generator
           </NavLink>
         </div>
-        <div className="w-full  border-b p-4">
+        <div className="w-full  border-b p-4 dark:text-white">
           <NavLink
             className={({ isActive }) =>
               isActive ? "text-red-500" : undefined

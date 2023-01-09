@@ -19,7 +19,6 @@ const UnitConverterDisplay = (props: Props) => {
     setShowMessage(true);
     navigator.clipboard.writeText(convertedText);
     setTimeout(() => {
-      // After 3 seconds set the show value to false
       setShowMessage(false);
     }, 1500);
   };

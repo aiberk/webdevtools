@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import CSSGeneratorInput from "../components/CSSGeneratorInput";
 import CSSGeneratorInputMulti from "../components/CSSGenertorInputMulti";
 import CopyToClipBoard from "../components/CopyToClipBoard";
-import CSSGeneratorInputDropDown from "../components/CSSGeneratorDropDown";
 import { Lorem } from "../components/Constants";
-import { NavLink } from "react-router-dom";
 
 function CSSHeadingGenerator() {
   const [previewHeading, setPreviewHeading] = useState<string>("Heading");
@@ -14,30 +12,21 @@ function CSSHeadingGenerator() {
 
   const [color, setColor] = useState<string>("#000000");
   const [fontSize, setFontSize] = useState<string>("40");
-  const [tracking, setTracking] = useState<string>("2");
-  const [weight, setWeight] = useState(400);
+  const [tracking, setTracking] = useState<number>(2);
+  const [weight, setWeight] = useState<number>(400);
   const [style, setStyle] = useState<string>("normal");
   const [headingAlign, setHeadingAlign] = useState<string>("left");
 
   const [paragraphcolor, setParagraphColor] = useState<string>("#000000");
   const [paragraphfontSize, setParagraphFontSize] = useState<string>("16");
-  const [paragraphtracking, setParagraphTracking] = useState<string>("0");
-  const [paragraphweight, setParagraphWeight] = useState(400);
+  const [paragraphtracking, setParagraphTracking] = useState<number>(0);
+  const [paragraphweight, setParagraphWeight] = useState<number>(400);
   const [paragraphstyle, setParagraphStyle] = useState<string>("normal");
   const [paragraphAlign, setParagraphAlign] = useState<string>("left");
 
   const styleChildren = ["normal", "italic", "oblique"];
   const alignChildren = ["left", "center", "right"];
   const weightChildren = [100, 200, 300, 400, 500, 600, 700, 800, 900];
-
-  const generateCSS = () => {
-    const css = `
-      color: ${color};
-      font-size: ${fontSize};
-    `;
-
-    return css;
-  };
 
   let cssStyle = {
     color: color,
@@ -71,6 +60,8 @@ function CSSHeadingGenerator() {
   return (
     <div className="flex md:flex-row flex-col  bg-zinc-200 dark:bg-zinc-700 ">
       <div className="hidden md:flex pt-11 min-h-screen max-w-xs w-full  flex-col"></div>
+
+      {/* Artboard */}
       <div
         className={`overflow-hidden md:h-screen   md:p-0  h-full w-full flex flex-col justify-center items-center`}
       >
@@ -102,6 +93,7 @@ function CSSHeadingGenerator() {
         </div>
       </div>
 
+      {/* Input Tab Left of UI */}
       <div className=" bg-white p-5 z-10 md:pt-20 md:max-w-xs dark:bg-zinc-800">
         <CopyToClipBoard
           label={"Get CSS"}
@@ -136,6 +128,7 @@ function CSSHeadingGenerator() {
           </button>
         </div>
 
+        {/* Preview Tab */}
         {editorStatus == "preview" ? (
           <div className="flex  md:p-0 p-10 flex-col w-full md:max-w-xs gap-4  ">
             <CSSGeneratorInput
@@ -162,6 +155,7 @@ function CSSHeadingGenerator() {
           </div>
         ) : undefined}
 
+        {/* Heading Tab */}
         {editorStatus == "heading" ? (
           <div className="flex flex-col md:p-0 p-10 w-full max-w-xl gap-4">
             <CSSGeneratorInput
@@ -214,6 +208,7 @@ function CSSHeadingGenerator() {
           </div>
         ) : undefined}
 
+        {/* Paragraph Tab */}
         {editorStatus == "paragraph" ? (
           <div className="flex flex-col md:p-0 p-10 w-full max-w-xl gap-4">
             <CSSGeneratorInput
