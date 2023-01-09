@@ -16,7 +16,7 @@ function NavBar({}: Props) {
 
   return (
     <>
-      <div className="z-20 w-screen fixed  bg-zinc-800 text-white flex flex-row justify-between gap-10 items-center pt-2 pb-2 pl-2 pr-2">
+      <div className="z-20 w-screen fixed  bg-zinc-800 dark:bg-zinc-900 text-white flex flex-row justify-between gap-10 items-center pt-2 pb-2 pl-2 pr-2">
         <nav className="flex flex-row justify-between gap-10 items-center w-full  text-xs">
           {/* <div className="group hidden ">
             <h1>Converters</h1>

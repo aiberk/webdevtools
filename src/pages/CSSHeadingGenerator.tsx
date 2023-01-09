@@ -46,17 +46,6 @@ function CSSHeadingGenerator() {
     textAlign: `${paragraphAlign}`,
   };
 
-  let regex = /["'{}]/g;
-  let regex2 = /[,]/g;
-  let cssStyleString = JSON.stringify(cssStyle);
-  let removeUnwanted = cssStyleString.replace(regex, "");
-  let commasToSemiColons = removeUnwanted.replace(regex2, "; ");
-  let jsxToCss = commasToSemiColons.replace(
-    /[A-Z]/g,
-    (m) => "-" + m.toLowerCase()
-  );
-  let final = jsxToCss + ";";
-
   return (
     <div className="flex md:flex-row flex-col  bg-zinc-200 dark:bg-zinc-700 ">
       <div className="hidden md:flex pt-11 min-h-screen max-w-xs w-full  flex-col"></div>
@@ -97,7 +86,7 @@ function CSSHeadingGenerator() {
       <div className=" bg-white p-5 z-10 md:pt-20 md:max-w-xs dark:bg-zinc-800">
         <CopyToClipBoard
           label={"Get CSS"}
-          input={final}
+          input={[cssStyle, paragraphcssStyle]}
           equation={0}
           type={""}
         />
