@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import CSSGeneratorInput from "../components/CSSGeneratorInput";
 import CSSGeneratorInputMulti from "../components/CSSGenertorInputMulti";
-import CSSGeneratorDropDown from "../components/CSSGeneratorDropDown";
 import CopyToClipBoard from "../components/CopyToClipBoard";
 import { Lorem } from "../components/Constants";
 
-function CSSHeadingGenerator() {
+function CSSDesignTokenGenerator() {
   const [previewHeading, setPreviewHeading] = useState<string>("Heading");
   const [previewText, setPreviewText] = useState<string>(Lorem);
   const [editorStatus, setEditorStatus] = useState<string>("heading");
@@ -55,6 +54,7 @@ function CSSHeadingGenerator() {
       <div
         className={`overflow-hidden md:h-screen   md:p-0  h-full w-full flex flex-col justify-center items-center`}
       >
+        <h1>Design Token generator</h1>
         <div
           className={`w-full max-w-2xl overflow-hidden p-20`}
           style={{
@@ -68,8 +68,17 @@ function CSSHeadingGenerator() {
               ...cssStyle,
             }}
           >
-            {previewHeading}
+            Heading 1
           </h1>
+
+          <h2
+            className=""
+            style={{
+              ...cssStyle,
+            }}
+          >
+            Heading 2
+          </h2>
           <span>
             {" "}
             <p
@@ -122,20 +131,6 @@ function CSSHeadingGenerator() {
         {editorStatus == "preview" ? (
           <div className="flex  md:p-0 p-10 flex-col w-full md:max-w-xs gap-4  ">
             <CSSGeneratorInput
-              unit={undefined}
-              type="text"
-              label={"Change Preview Heading"}
-              value={previewHeading}
-              changeCSS={(css) => setPreviewHeading(css)}
-            />
-            <CSSGeneratorInput
-              unit={undefined}
-              type="text"
-              label={"Change Preview Text"}
-              value={previewText}
-              changeCSS={(css) => setPreviewText(css)}
-            />
-            <CSSGeneratorInput
               unit={"rgb"}
               type="color"
               label={"Artboard Color"}
@@ -172,21 +167,24 @@ function CSSHeadingGenerator() {
               changeCSS={(css) => setTracking(css)}
             />
 
-            <CSSGeneratorDropDown
+            <CSSGeneratorInputMulti
+              type="radio"
               label={"Heading Font Style"}
               changeCSS={(css) => setStyle(css)}
               children={styleChildren}
               name={"Font Style"}
             />
 
-            <CSSGeneratorDropDown
+            <CSSGeneratorInputMulti
+              type="radio"
               label={"Heading Align"}
               changeCSS={(css) => setHeadingAlign(css)}
               children={alignChildren}
               name={"Heading Align"}
             />
 
-            <CSSGeneratorDropDown
+            <CSSGeneratorInputMulti
+              type="radio"
               label={"Heading Font Weight"}
               changeCSS={(css) => setWeight(css)}
               children={weightChildren}
@@ -222,20 +220,24 @@ function CSSHeadingGenerator() {
               changeCSS={(css) => setParagraphTracking(css)}
             />
 
-            <CSSGeneratorDropDown
+            <CSSGeneratorInputMulti
+              type="radio"
               label={"paragraph Font Style"}
               changeCSS={(css) => setParagraphStyle(css)}
               children={styleChildren}
               name={"Font Style"}
             />
 
-            <CSSGeneratorDropDown
+            <CSSGeneratorInputMulti
+              type="radio"
               label={"paragraph Font Weight"}
               changeCSS={(css) => setParagraphWeight(css)}
               children={weightChildren}
               name={"Font Style"}
             />
-            <CSSGeneratorDropDown
+
+            <CSSGeneratorInputMulti
+              type="radio"
               label={"Paragraph Align"}
               changeCSS={(css) => setParagraphAlign(css)}
               children={alignChildren}
@@ -248,4 +250,4 @@ function CSSHeadingGenerator() {
   );
 }
 
-export default CSSHeadingGenerator;
+export default CSSDesignTokenGenerator;

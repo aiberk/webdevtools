@@ -10,10 +10,6 @@ Tools to convert units and generate CSS easily for web development
 
 Convert PX to any web based unit and more
 
-### REM to anything
-
-Convert REM to any web based unit and more
-
 <br />
 <br />
 

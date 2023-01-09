@@ -6,6 +6,7 @@ import UnitConverterPX from "./pages/UnitConverterPX";
 import UnitConverterREM from "./pages/UnitConverterREM";
 import CSSHeadingGenerator from "./pages/CSSHeadingGenerator";
 import CSSTextGenerator from "./pages/CSSTextGenerator";
+import CSSDesignTokenGenerator from "./pages/CSSDesignTokenGenerator";
 import Home from "./pages/Home";
 
 function App() {
@@ -21,6 +22,10 @@ function App() {
           <Route
             path="/generator/text-styling"
             element={<CSSHeadingGenerator />}
+          />
+          <Route
+            path="/generator/design-tokens"
+            element={<CSSDesignTokenGenerator />}
           />
 
           <Route path="/" element={<Home />} />

@@ -9,10 +9,10 @@ type Props = {
 
 const CSSGeneratorInputDropDown = (props: Props) => {
   return (
-    <form className=" flex flex-col gap-1 border border-zinc-200 p-4 rounded-md">
+    <form className=" flex flex-row justify-between gap-1 border border-zinc-200 p-4 rounded-md align-middle">
       <label
         htmlFor={props.name}
-        className="dark:text-white block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+        className="dark:text-white block uppercase tracking-wide text-gray-700 text-xs font-bold "
       >
         {props.label}
       </label>
@@ -20,11 +20,14 @@ const CSSGeneratorInputDropDown = (props: Props) => {
         <select
           id="cars"
           name="cars"
-          multiple
           onChange={(e) => props.changeCSS(e.target.value)}
         >
           {props.children.map((child) => {
-            return <option value={child}>{child}</option>;
+            return (
+              <option key={child} value={child}>
+                {child}
+              </option>
+            );
           })}
         </select>{" "}
       </div>
