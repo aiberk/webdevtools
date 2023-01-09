@@ -8,8 +8,7 @@ type Props = {
   type: string;
 };
 
-const UnitConverterDisplay = (props: Props) => {
-  const [clipboard, setClipboard] = useState<string>("");
+const CopyToClipBoard = (props: Props) => {
   const [showMessage, setShowMessage] = useState<boolean>(false);
 
   const handleOnClick = (
@@ -25,7 +24,7 @@ const UnitConverterDisplay = (props: Props) => {
     }, 1500);
   };
 
-  const convertToCss = (item, className) => {
+  const convertToCss = (item, className, item2, className2) => {
     let regex = /["'{}]/g;
     let regex2 = /[,]/g;
     let stringified = JSON.stringify(item);
@@ -36,17 +35,42 @@ const UnitConverterDisplay = (props: Props) => {
       (m) => "-" + m.toLowerCase()
     );
     let finalHeading = "." + className + "{" + jsxToCss + "}" + ";";
-    let convertedText = finalHeading.toString();
+    let convertedText1 = finalHeading.toString();
+
+    let stringified2 = JSON.stringify(item2);
+    let removeUnwanted2 = stringified2.replace(regex, "");
+    let commasToSemiColons2 = removeUnwanted2.replace(regex2, "; ");
+    let jsxToCss2 = commasToSemiColons2.replace(
+      /[A-Z]/g,
+      (m) => "-" + m.toLowerCase()
+    );
+    let finalHeading2 = "." + className2 + "{" + jsxToCss + "}" + ";";
+    let convertedText2 = finalHeading2.toString();
+
+    let convertedText = convertedText1 + " " + convertedText2;
     return convertedText;
+  };
+
+  const convertToJSX = (item1, item2) => {
+    let item1string = JSON.stringify(item1);
+    let item2string = JSON.stringify(item2);
+    return "heading JSX:" + item1string + " " + "paragraph JSX:" + item2string;
   };
 
   return (
     <>
       <div className="md:max-w-xs  flex flex-row justify-center items-center dark:text-white appearance-none   text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-        {/* <code className="truncate">{text}</code> */}
         <button
           onClick={(event) => {
-            handleOnClick(event, convertToCss(props.input[0], "heading"));
+            handleOnClick(
+              event,
+              convertToCss(
+                props.input[0],
+                "heading",
+                props.input[1],
+                "paragraph"
+              )
+            );
           }}
           className=" pt-0.5 pb-0.5 pr-1 pl-1 rounded-sm text-xs border border-zinc-500 hover:bg-zinc-500 hover:text-white"
         >
@@ -54,7 +78,7 @@ const UnitConverterDisplay = (props: Props) => {
         </button>
         <button
           onClick={(event) => {
-            handleOnClick(event, JSON.stringify(props.input[1]));
+            handleOnClick(event, convertToJSX(props.input[0], props.input[1]));
           }}
           className=" pt-0.5 pb-0.5 pr-1 pl-1 rounded-sm text-xs border border-zinc-500 hover:bg-zinc-500 hover:text-white"
         >
@@ -70,4 +94,4 @@ const UnitConverterDisplay = (props: Props) => {
   );
 };
 
-export default UnitConverterDisplay;
+export default CopyToClipBoard;
