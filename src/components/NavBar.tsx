@@ -121,6 +121,16 @@ function NavBar({}: Props) {
             CSS Text Styling Generator
           </NavLink>
         </div>
+        <div className="w-full  border-b p-4 dark:text-white">
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? "text-red-500" : undefined
+            }
+            to="/generator/design-tokens"
+          >
+            CSS Typography Design Token Generator
+          </NavLink>
+        </div>
       </nav>
     </>
   );

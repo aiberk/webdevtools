@@ -3,11 +3,13 @@ import CSSGeneratorInput from "../components/CSSGeneratorInput";
 import CSSGeneratorInputMulti from "../components/CSSGenertorInputMulti";
 import CopyToClipBoard from "../components/CopyToClipBoard";
 import { Lorem } from "../components/Constants";
+import CSSGeneratorInputDropDown from "../components/CSSGeneratorDropDown";
+import OptionsDropDown from "../components/OptionsDropDown";
 
 function CSSDesignTokenGenerator() {
   const [previewHeading, setPreviewHeading] = useState<string>("Heading");
   const [previewText, setPreviewText] = useState<string>(Lorem);
-  const [editorStatus, setEditorStatus] = useState<string>("heading");
+  const [editorStatus, setEditorStatus] = useState<string>("mobile");
   const [artBoard, setArtBoard] = useState<string>("rgb(255,255,255)");
 
   const [color, setColor] = useState<string>("#000000");
@@ -15,7 +17,12 @@ function CSSDesignTokenGenerator() {
   const [tracking, setTracking] = useState<number>(2);
   const [weight, setWeight] = useState<number>(400);
   const [style, setStyle] = useState<string>("normal");
-  const [headingAlign, setHeadingAlign] = useState<string>("left");
+
+  const [H2color, setH2Color] = useState<string>("#000000");
+  const [H2fontSize, setH2FontSize] = useState<string>("40");
+  const [H2tracking, setH2Tracking] = useState<number>(2);
+  const [H2weight, setH2Weight] = useState<number>(400);
+  const [H2style, setH2Style] = useState<string>("normal");
 
   const [paragraphcolor, setParagraphColor] = useState<string>("#000000");
   const [paragraphfontSize, setParagraphFontSize] = useState<string>("16");
@@ -34,7 +41,14 @@ function CSSDesignTokenGenerator() {
     letterSpacing: `${tracking}px`,
     fontWeight: `${weight}`,
     fontStyle: `${style}`,
-    textAlign: `${headingAlign}`,
+  };
+
+  let cssStyleH2 = {
+    color: H2color,
+    fontSize: `${H2fontSize}px`,
+    letterSpacing: `${H2tracking}px`,
+    fontWeight: `${H2weight}`,
+    fontStyle: `${H2style}`,
   };
 
   let paragraphcssStyle = {
@@ -74,11 +88,36 @@ function CSSDesignTokenGenerator() {
           <h2
             className=""
             style={{
-              ...cssStyle,
+              ...cssStyleH2,
             }}
           >
             Heading 2
           </h2>
+          <h3
+            className=""
+            style={{
+              ...cssStyle,
+            }}
+          >
+            Heading 3
+          </h3>
+          <h4
+            className=""
+            style={{
+              ...cssStyle,
+            }}
+          >
+            Heading 4
+          </h4>
+
+          <span>
+            {" "}
+            <caption> Caption Large</caption>
+            <caption> Caption Medium</caption>
+            <caption> Caption Small</caption>
+          </span>
+
+          <a href="#link">Link</a>
           <span>
             {" "}
             <p
@@ -104,18 +143,18 @@ function CSSDesignTokenGenerator() {
           <button
             className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-1 px-2 rounded-l"
             onClick={() => {
-              setEditorStatus("heading");
+              setEditorStatus("mobile");
             }}
           >
-            Heading
+            Mobile
           </button>
           <button
             className={`bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-1 px-2`}
             onClick={() => {
-              setEditorStatus("paragraph");
+              setEditorStatus("desktop");
             }}
           >
-            Paragraph
+            Desktop
           </button>
           <button
             className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-1 px-2 rounded-r"
@@ -130,71 +169,121 @@ function CSSDesignTokenGenerator() {
         {/* Preview Tab */}
         {editorStatus == "preview" ? (
           <div className="flex  md:p-0 p-10 flex-col w-full md:max-w-xs gap-4  ">
-            <CSSGeneratorInput
-              unit={"rgb"}
-              type="color"
-              label={"Artboard Color"}
-              value={artBoard}
-              changeCSS={(css) => setArtBoard(css)}
+            <OptionsDropDown
+              children={
+                <>
+                  {" "}
+                  <CSSGeneratorInput
+                    unit={"rgb"}
+                    type="color"
+                    label={"Artboard Color"}
+                    value={artBoard}
+                    changeCSS={(css) => setArtBoard(css)}
+                  />
+                </>
+              }
+              title={"Test Title"}
             />
           </div>
         ) : undefined}
 
-        {/* Heading Tab */}
-        {editorStatus == "heading" ? (
+        {/*  Tab */}
+        {editorStatus == "mobile" ? (
           <div className="flex flex-col md:p-0 p-10 w-full max-w-xl gap-4">
-            <CSSGeneratorInput
-              unit={"px"}
-              type="number"
-              label={"Heading Font size"}
-              value={fontSize}
-              changeCSS={(css) => setFontSize(css)}
+            <OptionsDropDown
+              children={
+                <>
+                  {" "}
+                  <CSSGeneratorInput
+                    unit={"px"}
+                    type="number"
+                    label={"Heading Font size"}
+                    value={fontSize}
+                    changeCSS={(css) => setFontSize(css)}
+                  />
+                  <CSSGeneratorInput
+                    unit={"rgb"}
+                    type="color"
+                    label={"Heading Color"}
+                    value={color}
+                    changeCSS={(css) => setColor(css)}
+                  />
+                  <CSSGeneratorInput
+                    unit={"px"}
+                    type="number"
+                    label={"Heading Letter Spacing"}
+                    value={tracking}
+                    changeCSS={(css) => setTracking(css)}
+                  />
+                  <CSSGeneratorInputDropDown
+                    label={"Heading Font Style"}
+                    changeCSS={(css) => setStyle(css)}
+                    children={styleChildren}
+                    name={"Font Style"}
+                  />
+                  <CSSGeneratorInputDropDown
+                    label={"Heading Align"}
+                    changeCSS={(css) => setHeadingAlign(css)}
+                    children={alignChildren}
+                    name={"Heading Align"}
+                  />
+                  <CSSGeneratorInputDropDown
+                    label={"Heading Font Weight"}
+                    changeCSS={(css) => setWeight(css)}
+                    children={weightChildren}
+                    name={"Font Style"}
+                  />
+                </>
+              }
+              title={"H1"}
             />
 
-            <CSSGeneratorInput
-              unit={"rgb"}
-              type="color"
-              label={"Heading Color"}
-              value={color}
-              changeCSS={(css) => setColor(css)}
-            />
-
-            <CSSGeneratorInput
-              unit={"px"}
-              type="number"
-              label={"Heading Letter Spacing"}
-              value={tracking}
-              changeCSS={(css) => setTracking(css)}
-            />
-
-            <CSSGeneratorInputMulti
-              type="radio"
-              label={"Heading Font Style"}
-              changeCSS={(css) => setStyle(css)}
-              children={styleChildren}
-              name={"Font Style"}
-            />
-
-            <CSSGeneratorInputMulti
-              type="radio"
-              label={"Heading Align"}
-              changeCSS={(css) => setHeadingAlign(css)}
-              children={alignChildren}
-              name={"Heading Align"}
-            />
-
-            <CSSGeneratorInputMulti
-              type="radio"
-              label={"Heading Font Weight"}
-              changeCSS={(css) => setWeight(css)}
-              children={weightChildren}
-              name={"Font Style"}
+            <OptionsDropDown
+              children={
+                <>
+                  {" "}
+                  <CSSGeneratorInput
+                    unit={"px"}
+                    type="number"
+                    label={"Heading Font size"}
+                    value={H2fontSize}
+                    changeCSS={(css) => setH2FontSize(css)}
+                  />
+                  <CSSGeneratorInput
+                    unit={"rgb"}
+                    type="color"
+                    label={"Heading Color"}
+                    value={H2color}
+                    changeCSS={(css) => setH2Color(css)}
+                  />
+                  <CSSGeneratorInput
+                    unit={"px"}
+                    type="number"
+                    label={"Heading Letter Spacing"}
+                    value={H2tracking}
+                    changeCSS={(css) => setH2Tracking(css)}
+                  />
+                  <CSSGeneratorInputDropDown
+                    label={"Heading Font Style"}
+                    changeCSS={(css) => setH2Style(css)}
+                    children={styleChildren}
+                    name={"Font Style"}
+                  />
+                  <CSSGeneratorInputDropDown
+                    label={"Heading Font Weight"}
+                    changeCSS={(css) => setH2Weight(css)}
+                    children={weightChildren}
+                    name={"Font Style"}
+                  />
+                </>
+              }
+              title={"H2"}
             />
           </div>
         ) : undefined}
 
         {/* Paragraph Tab */}
-        {editorStatus == "paragraph" ? (
+        {editorStatus == "desktop" ? (
           <div className="flex flex-col md:p-0 p-10 w-full max-w-xl gap-4">
             <CSSGeneratorInput
               unit={"px"}
@@ -220,24 +309,21 @@ function CSSDesignTokenGenerator() {
               changeCSS={(css) => setParagraphTracking(css)}
             />
 
-            <CSSGeneratorInputMulti
-              type="radio"
+            <CSSGeneratorInputDropDown
               label={"paragraph Font Style"}
               changeCSS={(css) => setParagraphStyle(css)}
               children={styleChildren}
               name={"Font Style"}
             />
 
-            <CSSGeneratorInputMulti
-              type="radio"
+            <CSSGeneratorInputDropDown
               label={"paragraph Font Weight"}
               changeCSS={(css) => setParagraphWeight(css)}
               children={weightChildren}
               name={"Font Style"}
             />
 
-            <CSSGeneratorInputMulti
-              type="radio"
+            <CSSGeneratorInputDropDown
               label={"Paragraph Align"}
               changeCSS={(css) => setParagraphAlign(css)}
               children={alignChildren}
