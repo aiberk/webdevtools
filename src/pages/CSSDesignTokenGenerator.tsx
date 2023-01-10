@@ -13,34 +13,54 @@ function CSSDesignTokenGenerator() {
   const [editorStatus, setEditorStatus] = useState<string>("mobile");
   const [artBoard, setArtBoard] = useState<string>("rgb(255,255,255)");
 
-  const [testState, setTest] = useState({
-    color: "#ff3333",
-    fontSize: "16",
-  });
+  const [appState, setAppState] = useState([
+    {
+      name: "H1",
+      color: "#000000",
+      fontSize: "40",
+      tracking: 0,
+      weight: 400,
+      style: "normal",
+    },
+    {
+      name: "H2",
+      color: "#ff0000",
+      fontSize: "30",
+      tracking: 0,
+      weight: 500,
+      style: "normal",
+    },
+    {
+      name: "H3",
+      color: "#000000",
+      fontSize: "25",
+      tracking: 0,
+      weight: 500,
+      style: "normal",
+    },
+    {
+      name: "H4",
+      color: "#000000",
+      fontSize: "20",
+      tracking: 0,
+      weight: 500,
+      style: "normal",
+    },
+    {
+      name: "P",
+      color: "#000000",
+      fontSize: "16",
+      tracking: 0,
+      weight: 500,
+      style: "normal",
+    },
+  ]);
 
   const [color, setColor] = useState<string>("#000000");
   const [fontSize, setFontSize] = useState<string>("40");
   const [tracking, setTracking] = useState<number>(2);
   const [weight, setWeight] = useState<number>(400);
   const [style, setStyle] = useState<string>("normal");
-
-  const [H2color, setH2Color] = useState<string>("#000000");
-  const [H2fontSize, setH2FontSize] = useState<string>("30");
-  const [H2tracking, setH2Tracking] = useState<number>(2);
-  const [H2weight, setH2Weight] = useState<number>(400);
-  const [H2style, setH2Style] = useState<string>("normal");
-
-  const [H3color, setH3Color] = useState<string>("#000000");
-  const [H3fontSize, setH3FontSize] = useState<string>("25");
-  const [H3tracking, setH3Tracking] = useState<number>(2);
-  const [H3weight, setH3Weight] = useState<number>(400);
-  const [H3style, setH3Style] = useState<string>("normal");
-
-  const [H4color, setH4color] = useState<string>("#000000");
-  const [H4fontSize, setH4FontSize] = useState<string>("15");
-  const [H4tracking, setH4Tracking] = useState<number>(2);
-  const [H4weight, setH4Weight] = useState<number>(400);
-  const [H4style, setH4Style] = useState<string>("normal");
 
   const [paragraphcolor, setParagraphColor] = useState<string>("#000000");
   const [paragraphfontSize, setParagraphFontSize] = useState<string>("16");
@@ -49,40 +69,13 @@ function CSSDesignTokenGenerator() {
   const [paragraphstyle, setParagraphStyle] = useState<string>("normal");
   const [paragraphAlign, setParagraphAlign] = useState<string>("left");
 
-  const styleChildren = ["normal", "italic", "oblique"];
-  const alignChildren = ["left", "center", "right"];
-  const weightChildren = [100, 200, 300, 400, 500, 600, 700, 800, 900];
-
+  ///Change for export
   let cssStyle = {
     color: color,
     fontSize: `${fontSize}px`,
     letterSpacing: `${tracking}px`,
     fontWeight: `${weight}`,
     fontStyle: `${style}`,
-  };
-
-  let cssStyleH2 = {
-    color: H2color,
-    fontSize: `${H2fontSize}px`,
-    letterSpacing: `${H2tracking}px`,
-    fontWeight: `${H2weight}`,
-    fontStyle: `${H2style}`,
-  };
-
-  let cssStyleH3 = {
-    color: H3color,
-    fontSize: `${H3fontSize}px`,
-    letterSpacing: `${H3tracking}px`,
-    fontWeight: `${H3weight}`,
-    fontStyle: `${H3style}`,
-  };
-
-  let cssStyleH4 = {
-    color: H4color,
-    fontSize: `${H4fontSize}px`,
-    letterSpacing: `${H4tracking}px`,
-    fontWeight: `${H4weight}`,
-    fontStyle: `${H4style}`,
   };
 
   let paragraphcssStyle = {
@@ -94,13 +87,16 @@ function CSSDesignTokenGenerator() {
     textAlign: `${paragraphAlign}`,
   };
 
-  const updateFieldChanged = (key, e) => {
-    let temp = {};
-    let newArr = Object.assign(temp, testState);
-    newArr[`${key}`] = e;
-    console.log(testState);
-    setTest(newArr);
-    console.log(testState);
+  const updateStateChanged = (index, key, e) => {
+    let temp = appState.map((item) => {
+      return { ...item };
+    });
+    console.log(appState);
+    console.log(temp);
+    temp[index][key] = e;
+    console.log(appState);
+    console.log(temp);
+    setAppState(temp);
   };
 
   return (
@@ -124,7 +120,11 @@ function CSSDesignTokenGenerator() {
           <h1
             className=""
             style={{
-              ...cssStyle,
+              ...appState[0],
+              fontSize: `${appState[0].fontSize}px`,
+              letterSpacing: `${appState[0].tracking}px`,
+              fontStyle: `${appState[0].style}`,
+              fontWeight: `${appState[0].weight}`,
             }}
           >
             Heading 1
@@ -133,7 +133,11 @@ function CSSDesignTokenGenerator() {
           <h2
             className=""
             style={{
-              ...cssStyleH2,
+              ...appState[1],
+              fontSize: `${appState[1].fontSize}px`,
+              letterSpacing: `${appState[1].tracking}px`,
+              fontStyle: `${appState[1].style}`,
+              fontWeight: `${appState[1].weight}`,
             }}
           >
             Heading 2
@@ -141,7 +145,11 @@ function CSSDesignTokenGenerator() {
           <h3
             className=""
             style={{
-              ...cssStyleH3,
+              ...appState[2],
+              fontSize: `${appState[2].fontSize}px`,
+              letterSpacing: `${appState[2].tracking}px`,
+              fontStyle: `${appState[2].style}`,
+              fontWeight: `${appState[2].weight}`,
             }}
           >
             Heading 3
@@ -149,7 +157,11 @@ function CSSDesignTokenGenerator() {
           <h4
             className=""
             style={{
-              ...cssStyleH4,
+              ...appState[3],
+              fontSize: `${appState[3].fontSize}px`,
+              letterSpacing: `${appState[3].tracking}px`,
+              fontStyle: `${appState[3].style}`,
+              fontWeight: `${appState[3].weight}`,
             }}
           >
             Heading 4
@@ -159,8 +171,11 @@ function CSSDesignTokenGenerator() {
             {" "}
             <p
               style={{
-                color: testState.color,
-                fontSize: `${testState.fontSize}px`,
+                ...appState[4],
+                fontSize: `${appState[4].fontSize}px`,
+                letterSpacing: `${appState[4].tracking}px`,
+                fontStyle: `${appState[4].style}`,
+                fontWeight: `${appState[4].weight}`,
               }}
             >
               {previewText}
@@ -228,150 +243,76 @@ function CSSDesignTokenGenerator() {
         {/*  Tab */}
         {editorStatus == "mobile" ? (
           <div className="flex flex-col md:p-0 p-10 w-full max-w-xl gap-4">
-            <OptionsDropDown
-              title={"H1"}
-              children={
-                <>
-                  <OptionsDropDownGenerator
-                    title="H1"
-                    fontValue={fontSize}
-                    fontFunction={(css) => setFontSize(css)}
-                    colorValue={color}
-                    colorFunction={(css) => setColor(css)}
-                    trackingValue={tracking}
-                    trackingFunction={(css) => setTracking(css)}
-                    styleFunction={(css) => setStyle(css)}
-                    weightFunction={(css) => setWeight(css)}
-                  />
-                </>
-              }
-            />
-
-            <OptionsDropDown
-              title={"H2"}
-              children={
-                <>
-                  <OptionsDropDownGenerator
-                    title="H2"
-                    fontValue={H2fontSize}
-                    fontFunction={(css) => setH2FontSize(css)}
-                    colorValue={H2color}
-                    colorFunction={(css) => setH2Color(css)}
-                    trackingValue={H2tracking}
-                    trackingFunction={(css) => setH2Tracking(css)}
-                    styleFunction={(css) => setH2Style(css)}
-                    weightFunction={(css) => setH2Weight(css)}
-                  />
-                </>
-              }
-            />
-
-            <OptionsDropDown
-              title={"H3"}
-              children={
-                <>
-                  <OptionsDropDownGenerator
-                    title="H3"
-                    fontValue={H3fontSize}
-                    fontFunction={(css) => setH3FontSize(css)}
-                    colorValue={H3color}
-                    colorFunction={(css) => setH3Color(css)}
-                    trackingValue={H3tracking}
-                    trackingFunction={(css) => setH3Tracking(css)}
-                    styleFunction={(css) => setH3Style(css)}
-                    weightFunction={(css) => setH3Weight(css)}
-                  />
-                </>
-              }
-            />
-
-            <OptionsDropDown
-              title={"H4"}
-              children={
-                <>
-                  <OptionsDropDownGenerator
-                    title="H4"
-                    fontValue={H4fontSize}
-                    fontFunction={(css) => setH4FontSize(css)}
-                    colorValue={H4color}
-                    colorFunction={(css) => setH4color(css)}
-                    trackingValue={H4tracking}
-                    trackingFunction={(css) => setH4Tracking(css)}
-                    styleFunction={(css) => setH4Style(css)}
-                    weightFunction={(css) => setH4Weight(css)}
-                  />
-                </>
-              }
-            />
-
-            <OptionsDropDown
-              title={"P"}
-              children={
-                <>
-                  <OptionsDropDownGenerator
-                    title="Paragraph"
-                    fontValue={testState.fontSize}
-                    fontFunction={(css) => updateFieldChanged("fontSize", css)}
-                    colorValue={paragraphcolor}
-                    colorFunction={(css) => setParagraphColor(css)}
-                    trackingValue={paragraphtracking}
-                    trackingFunction={(css) => setParagraphTracking(css)}
-                    styleFunction={(css) => setParagraphStyle(css)}
-                    weightFunction={(css) => setParagraphWeight(css)}
-                  />
-                </>
-              }
-            />
+            {appState.map((item, index) => {
+              return (
+                <OptionsDropDown
+                  title={item.name}
+                  children={
+                    <>
+                      <OptionsDropDownGenerator
+                        title={item.name}
+                        fontValue={appState[index].fontSize}
+                        fontFunction={(css) =>
+                          updateStateChanged(index, "fontSize", css)
+                        }
+                        colorValue={appState[index].color}
+                        colorFunction={(css) =>
+                          updateStateChanged(index, "color", css)
+                        }
+                        trackingValue={appState[index].tracking}
+                        trackingFunction={(css) =>
+                          updateStateChanged(index, "tracking", css)
+                        }
+                        styleFunction={(css) =>
+                          updateStateChanged(index, "style", css)
+                        }
+                        weightFunction={(css) =>
+                          updateStateChanged(index, "weight", css)
+                        }
+                      />
+                    </>
+                  }
+                />
+              );
+            })}
           </div>
         ) : undefined}
 
         {/* Paragraph Tab */}
         {editorStatus == "desktop" ? (
           <div className="flex flex-col md:p-0 p-10 w-full max-w-xl gap-4">
-            <CSSGeneratorInput
-              unit={"px"}
-              type="number"
-              label={"paragraph font size"}
-              value={paragraphfontSize}
-              changeCSS={(css) => setParagraphFontSize(css)}
-            />
-
-            <CSSGeneratorInput
-              unit={"rgb"}
-              type="color"
-              label={"paragraph Color"}
-              value={paragraphcolor}
-              changeCSS={(css) => setParagraphColor(css)}
-            />
-
-            <CSSGeneratorInput
-              unit={"px"}
-              type="number"
-              label={"paragraph Letter Spacing"}
-              value={paragraphtracking}
-              changeCSS={(css) => setParagraphTracking(css)}
-            />
-
-            <CSSGeneratorInputDropDown
-              label={"paragraph Font Style"}
-              changeCSS={(css) => setParagraphStyle(css)}
-              children={styleChildren}
-              name={"Font Style"}
-            />
-
-            <CSSGeneratorInputDropDown
-              label={"paragraph Font Weight"}
-              changeCSS={(css) => setParagraphWeight(css)}
-              children={weightChildren}
-              name={"Font Style"}
-            />
-
-            <CSSGeneratorInputDropDown
-              label={"Paragraph Align"}
-              changeCSS={(css) => setParagraphAlign(css)}
-              children={alignChildren}
-              name={"Paragraph Align"}
-            />
+            {appState.map((item, index) => {
+              return (
+                <OptionsDropDown
+                  title={item.name}
+                  children={
+                    <>
+                      <OptionsDropDownGenerator
+                        title={item.name}
+                        fontValue={appState[index].fontSize}
+                        fontFunction={(css) =>
+                          updateStateChanged(index, "fontSize", css)
+                        }
+                        colorValue={appState[index].color}
+                        colorFunction={(css) =>
+                          updateStateChanged(index, "color", css)
+                        }
+                        trackingValue={appState[index].tracking}
+                        trackingFunction={(css) =>
+                          updateStateChanged(index, "tracking", css)
+                        }
+                        styleFunction={(css) =>
+                          updateStateChanged(index, "style", css)
+                        }
+                        weightFunction={(css) =>
+                          updateStateChanged(index, "weight", css)
+                        }
+                      />
+                    </>
+                  }
+                />
+              );
+            })}
           </div>
         ) : undefined}
       </div>
