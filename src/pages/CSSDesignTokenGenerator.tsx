@@ -180,7 +180,7 @@ function CSSDesignTokenGenerator() {
       </div>
 
       {/* Input Tab Left of UI */}
-      <div className=" bg-white p-5 z-10 md:pt-20 md:max-w-xs dark:bg-zinc-800">
+      <div className=" bg-white p-5 z-10 md:pt-20 md:max-w-xs dark:bg-zinc-800 w-96">
         {/* <CopyToClipBoard
           label={"Get CSS"}
           input={[cssStyle, paragraphcssStyle]}
@@ -195,31 +195,46 @@ function CSSDesignTokenGenerator() {
         >
           Download Tokens
         </button>
-        <div className="flex flex-row mt-2 mb-6">
-          <button
-            className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-1 px-2 rounded-l"
-            onClick={() => {
-              setEditorStatus("mobile");
-            }}
-          >
-            Mobile
-          </button>
-          <button
-            className={`bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-1 px-2`}
-            onClick={() => {
-              setEditorStatus("desktop");
-            }}
-          >
-            Desktop
-          </button>
-          <button
-            className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-1 px-2 rounded-r"
-            onClick={() => {
-              setEditorStatus("preview");
-            }}
-          >
-            Artboard
-          </button>
+        <div className="flex flex-row mt-2 mb-6 w-full">
+          {editorStatus != "mobile" ? (
+            <button
+              className="w-full bg-gray-200 hover:bg-gray-400 hover:text-white text-gray-800 font-bold py-1 px-2 rounded-l "
+              onClick={() => {
+                setEditorStatus("mobile");
+              }}
+            >
+              Elements
+            </button>
+          ) : (
+            <button
+              className="w-full bg-gray-300 hover:bg-gray-400 hover:text-white text-gray-800 font-bold py-1 px-2 rounded-l "
+              onClick={() => {
+                setEditorStatus("mobile");
+              }}
+            >
+              Elements
+            </button>
+          )}
+
+          {editorStatus != "preview" ? (
+            <button
+              className="w-full bg-gray-200 hover:bg-gray-400 hover:text-white text-gray-800 font-bold py-1 px-2 rounded-r "
+              onClick={() => {
+                setEditorStatus("preview");
+              }}
+            >
+              Artboard
+            </button>
+          ) : (
+            <button
+              className="w-full bg-gray-300 hover:bg-gray-400 hover:text-white text-gray-800 font-bold py-1 px-2 rounded-r "
+              onClick={() => {
+                setEditorStatus("preview");
+              }}
+            >
+              Artboard
+            </button>
+          )}
         </div>
 
         {/* Preview Tab */}
