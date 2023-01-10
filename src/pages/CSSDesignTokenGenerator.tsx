@@ -4,6 +4,7 @@ import CopyToClipBoard from "../components/CopyToClipBoard";
 import { Lorem } from "../components/Constants";
 import OptionsDropDown from "../components/OptionsDropDown";
 import OptionsDropDownGenerator from "../components/OptionsDropDownGenerator";
+import GenerateTokens from "../components/GenerateTokens";
 
 function CSSDesignTokenGenerator() {
   const [previewHeading, setPreviewHeading] = useState<string>("Heading");
@@ -150,14 +151,7 @@ function CSSDesignTokenGenerator() {
 
       {/* Input Tab Left of UI */}
       <div className=" bg-white p-5 z-10 md:pt-20 md:max-w-xs dark:bg-zinc-800 w-96">
-        <button
-          onClick={() => {
-            alert("Downloading");
-          }}
-          className="w-full bg-blue-500 text-white font-semibold pt-2 pb-2 rounded-xs"
-        >
-          Download Tokens
-        </button>
+        <GenerateTokens appState={appState} />
         <div className="flex flex-row mt-2 mb-6 w-full">
           {editorStatus != "elements" ? (
             <button
@@ -227,6 +221,7 @@ function CSSDesignTokenGenerator() {
             {appState.map((item, index) => {
               return (
                 <OptionsDropDown
+                  key={item.name}
                   title={item.name}
                   children={
                     <>
