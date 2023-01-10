@@ -17,7 +17,7 @@ const OptionsDropDownGenerator = (props: Props) => {
   const styleChildren = ["normal", "italic", "oblique"];
   const weightChildren = [100, 200, 300, 400, 500, 600, 700, 800, 900];
   return (
-    <div>
+    <div className="flex flex-col gap-4">
       <CSSGeneratorInput
         unit={"px"}
         type="number"

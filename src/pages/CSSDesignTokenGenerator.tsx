@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import CSSGeneratorInput from "../components/CSSGeneratorInput";
-import CSSGeneratorInputMulti from "../components/CSSGenertorInputMulti";
 import CopyToClipBoard from "../components/CopyToClipBoard";
 import { Lorem } from "../components/Constants";
-import CSSGeneratorInputDropDown from "../components/CSSGeneratorDropDown";
 import OptionsDropDown from "../components/OptionsDropDown";
 import OptionsDropDownGenerator from "../components/OptionsDropDownGenerator";
 
@@ -88,14 +86,11 @@ function CSSDesignTokenGenerator() {
   };
 
   const updateStateChanged = (index, key, e) => {
+    //Makes a copy of the state object, to edit then replace
     let temp = appState.map((item) => {
       return { ...item };
     });
-    console.log(appState);
-    console.log(temp);
     temp[index][key] = e;
-    console.log(appState);
-    console.log(temp);
     setAppState(temp);
   };
 
@@ -107,7 +102,7 @@ function CSSDesignTokenGenerator() {
       <div
         className={`overflow-hidden md:h-screen   md:p-0  h-full w-full flex flex-col justify-center items-center`}
       >
-        <h1 className="text-3xl font-semibold mb-4">
+        <h1 className="text-3xl font-semibold mb-4 dark:text-white">
           Typography Token Generator
         </h1>
         <div
@@ -186,12 +181,20 @@ function CSSDesignTokenGenerator() {
 
       {/* Input Tab Left of UI */}
       <div className=" bg-white p-5 z-10 md:pt-20 md:max-w-xs dark:bg-zinc-800">
-        <CopyToClipBoard
+        {/* <CopyToClipBoard
           label={"Get CSS"}
           input={[cssStyle, paragraphcssStyle]}
           equation={0}
           type={""}
-        />
+        /> */}
+        <button
+          onClick={() => {
+            alert("Downloading");
+          }}
+          className="w-full bg-blue-500 text-white font-semibold pt-2 pb-2 rounded-xs"
+        >
+          Download Tokens
+        </button>
         <div className="flex flex-row mt-2 mb-6">
           <button
             className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-1 px-2 rounded-l"

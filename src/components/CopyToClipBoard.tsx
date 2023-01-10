@@ -18,7 +18,6 @@ const CopyToClipBoard = (props: Props) => {
     event.preventDefault();
     setShowMessage(true);
     navigator.clipboard.writeText(input);
-    console.log(props.input[1]);
     setTimeout(() => {
       setShowMessage(false);
     }, 1500);
