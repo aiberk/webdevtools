@@ -2,8 +2,8 @@ import React, { Children } from "react";
 import { useState } from "react";
 
 type Props = {
-  children: any;
   title: string;
+  children: any;
 };
 
 const OptionsDropDown = (props: Props) => {

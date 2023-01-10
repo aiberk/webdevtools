@@ -5,6 +5,7 @@ import CopyToClipBoard from "../components/CopyToClipBoard";
 import { Lorem } from "../components/Constants";
 import CSSGeneratorInputDropDown from "../components/CSSGeneratorDropDown";
 import OptionsDropDown from "../components/OptionsDropDown";
+import OptionsDropDownGenerator from "../components/OptionsDropDownGenerator";
 
 function CSSDesignTokenGenerator() {
   const [previewHeading, setPreviewHeading] = useState<string>("Heading");
@@ -219,220 +220,90 @@ function CSSDesignTokenGenerator() {
         {editorStatus == "mobile" ? (
           <div className="flex flex-col md:p-0 p-10 w-full max-w-xl gap-4">
             <OptionsDropDown
-              children={
-                <>
-                  {" "}
-                  <CSSGeneratorInput
-                    unit={"px"}
-                    type="number"
-                    label={"Heading Font size"}
-                    value={fontSize}
-                    changeCSS={(css) => setFontSize(css)}
-                  />
-                  <CSSGeneratorInput
-                    unit={"rgb"}
-                    type="color"
-                    label={"Heading Color"}
-                    value={color}
-                    changeCSS={(css) => setColor(css)}
-                  />
-                  <CSSGeneratorInput
-                    unit={"px"}
-                    type="number"
-                    label={"Heading Letter Spacing"}
-                    value={tracking}
-                    changeCSS={(css) => setTracking(css)}
-                  />
-                  <CSSGeneratorInputDropDown
-                    label={"Heading Font Style"}
-                    changeCSS={(css) => setStyle(css)}
-                    children={styleChildren}
-                    name={"Font Style"}
-                  />
-                  <CSSGeneratorInputDropDown
-                    label={"Heading Font Weight"}
-                    changeCSS={(css) => setWeight(css)}
-                    children={weightChildren}
-                    name={"Font Style"}
-                  />
-                </>
-              }
               title={"H1"}
-            />
-
-            <OptionsDropDown
               children={
                 <>
-                  {" "}
-                  <CSSGeneratorInput
-                    unit={"px"}
-                    type="number"
-                    label={"Heading Font size"}
-                    value={H2fontSize}
-                    changeCSS={(css) => setH2FontSize(css)}
-                  />
-                  <CSSGeneratorInput
-                    unit={"rgb"}
-                    type="color"
-                    label={"Heading Color"}
-                    value={H2color}
-                    changeCSS={(css) => setH2Color(css)}
-                  />
-                  <CSSGeneratorInput
-                    unit={"px"}
-                    type="number"
-                    label={"Heading Letter Spacing"}
-                    value={H2tracking}
-                    changeCSS={(css) => setH2Tracking(css)}
-                  />
-                  <CSSGeneratorInputDropDown
-                    label={"Heading Font Style"}
-                    changeCSS={(css) => setH2Style(css)}
-                    children={styleChildren}
-                    name={"Font Style"}
-                  />
-                  <CSSGeneratorInputDropDown
-                    label={"Heading Font Weight"}
-                    changeCSS={(css) => setH2Weight(css)}
-                    children={weightChildren}
-                    name={"Font Style"}
+                  <OptionsDropDownGenerator
+                    fontValue={fontSize}
+                    fontFunction={(css) => setFontSize(css)}
+                    colorValue={color}
+                    colorFunction={(css) => setColor(css)}
+                    trackingValue={tracking}
+                    trackingFunction={(css) => setTracking(css)}
+                    styleFunction={(css) => setStyle(css)}
+                    weightFunction={(css) => setWeight(css)}
                   />
                 </>
               }
+            />
+
+            <OptionsDropDown
               title={"H2"}
-            />
-
-            <OptionsDropDown
               children={
                 <>
-                  {" "}
-                  <CSSGeneratorInput
-                    unit={"px"}
-                    type="number"
-                    label={"Heading Font size"}
-                    value={H3fontSize}
-                    changeCSS={(css) => setH3FontSize(css)}
-                  />
-                  <CSSGeneratorInput
-                    unit={"rgb"}
-                    type="color"
-                    label={"Heading Color"}
-                    value={H3color}
-                    changeCSS={(css) => setH3Color(css)}
-                  />
-                  <CSSGeneratorInput
-                    unit={"px"}
-                    type="number"
-                    label={"Heading Letter Spacing"}
-                    value={H3tracking}
-                    changeCSS={(css) => setH3Tracking(css)}
-                  />
-                  <CSSGeneratorInputDropDown
-                    label={"Heading Font Style"}
-                    changeCSS={(css) => setH3Style(css)}
-                    children={styleChildren}
-                    name={"Font Style"}
-                  />
-                  <CSSGeneratorInputDropDown
-                    label={"Heading Font Weight"}
-                    changeCSS={(css) => setH3Weight(css)}
-                    children={weightChildren}
-                    name={"Font Style"}
+                  <OptionsDropDownGenerator
+                    fontValue={H2fontSize}
+                    fontFunction={(css) => setH2FontSize(css)}
+                    colorValue={H2color}
+                    colorFunction={(css) => setH2Color(css)}
+                    trackingValue={H2tracking}
+                    trackingFunction={(css) => setH2Tracking(css)}
+                    styleFunction={(css) => setH2Style(css)}
+                    weightFunction={(css) => setH2Weight(css)}
                   />
                 </>
               }
+            />
+
+            <OptionsDropDown
               title={"H3"}
-            />
-
-            <OptionsDropDown
               children={
                 <>
-                  {" "}
-                  <CSSGeneratorInput
-                    unit={"px"}
-                    type="number"
-                    label={"Heading Font size"}
-                    value={H4fontSize}
-                    changeCSS={(css) => setH4FontSize(css)}
-                  />
-                  <CSSGeneratorInput
-                    unit={"rgb"}
-                    type="color"
-                    label={"Heading Color"}
-                    value={H4color}
-                    changeCSS={(css) => setH4color(css)}
-                  />
-                  <CSSGeneratorInput
-                    unit={"px"}
-                    type="number"
-                    label={"Heading Letter Spacing"}
-                    value={H4tracking}
-                    changeCSS={(css) => setH4Tracking(css)}
-                  />
-                  <CSSGeneratorInputDropDown
-                    label={"Heading Font Style"}
-                    changeCSS={(css) => setH4Style(css)}
-                    children={styleChildren}
-                    name={"Font Style"}
-                  />
-                  <CSSGeneratorInputDropDown
-                    label={"Heading Font Weight"}
-                    changeCSS={(css) => setH4Weight(css)}
-                    children={weightChildren}
-                    name={"Font Style"}
+                  <OptionsDropDownGenerator
+                    fontValue={H3fontSize}
+                    fontFunction={(css) => setH3FontSize(css)}
+                    colorValue={H3color}
+                    colorFunction={(css) => setH3Color(css)}
+                    trackingValue={H3tracking}
+                    trackingFunction={(css) => setH3Tracking(css)}
+                    styleFunction={(css) => setH3Style(css)}
+                    weightFunction={(css) => setH3Weight(css)}
                   />
                 </>
               }
-              title={"H4"}
             />
 
             <OptionsDropDown
-              title={"Paragraph"}
+              title={"H4"}
               children={
                 <>
-                  <CSSGeneratorInput
-                    unit={"px"}
-                    type="number"
-                    label={"paragraph font size"}
-                    value={paragraphfontSize}
-                    changeCSS={(css) => setParagraphFontSize(css)}
+                  <OptionsDropDownGenerator
+                    fontValue={H4fontSize}
+                    fontFunction={(css) => setH4FontSize(css)}
+                    colorValue={H4color}
+                    colorFunction={(css) => setH4color(css)}
+                    trackingValue={H4tracking}
+                    trackingFunction={(css) => setH4Tracking(css)}
+                    styleFunction={(css) => setH4Style(css)}
+                    weightFunction={(css) => setH4Weight(css)}
                   />
+                </>
+              }
+            />
 
-                  <CSSGeneratorInput
-                    unit={"rgb"}
-                    type="color"
-                    label={"paragraph Color"}
-                    value={paragraphcolor}
-                    changeCSS={(css) => setParagraphColor(css)}
-                  />
-
-                  <CSSGeneratorInput
-                    unit={"px"}
-                    type="number"
-                    label={"paragraph Letter Spacing"}
-                    value={paragraphtracking}
-                    changeCSS={(css) => setParagraphTracking(css)}
-                  />
-
-                  <CSSGeneratorInputDropDown
-                    label={"paragraph Font Style"}
-                    changeCSS={(css) => setParagraphStyle(css)}
-                    children={styleChildren}
-                    name={"Font Style"}
-                  />
-
-                  <CSSGeneratorInputDropDown
-                    label={"paragraph Font Weight"}
-                    changeCSS={(css) => setParagraphWeight(css)}
-                    children={weightChildren}
-                    name={"Font Style"}
-                  />
-
-                  <CSSGeneratorInputDropDown
-                    label={"Paragraph Align"}
-                    changeCSS={(css) => setParagraphAlign(css)}
-                    children={alignChildren}
-                    name={"Paragraph Align"}
+            <OptionsDropDown
+              title={"P"}
+              children={
+                <>
+                  <OptionsDropDownGenerator
+                    fontValue={paragraphfontSize}
+                    fontFunction={(css) => setParagraphFontSize(css)}
+                    colorValue={paragraphcolor}
+                    colorFunction={(css) => setParagraphColor(css)}
+                    trackingValue={paragraphtracking}
+                    trackingFunction={(css) => setParagraphTracking(css)}
+                    styleFunction={(css) => setParagraphStyle(css)}
+                    weightFunction={(css) => setParagraphWeight(css)}
                   />
                 </>
               }
