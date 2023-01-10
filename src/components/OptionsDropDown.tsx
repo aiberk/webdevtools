@@ -20,7 +20,7 @@ const OptionsDropDown = (props: Props) => {
       {" "}
       <div className="flex flex-row justify-between align-middle items-baseline">
         <h1 className="dark:text-white block uppercase tracking-wide text-gray-700 text-sm font-bold ">
-          {props.title}
+          {props.title} Settings
         </h1>
         <button
           onClick={(event) => {
