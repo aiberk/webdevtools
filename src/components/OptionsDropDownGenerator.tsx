@@ -15,7 +15,6 @@ type Props = {
 
 const OptionsDropDownGenerator = (props: Props) => {
   const styleChildren = ["normal", "italic", "oblique"];
-  const alignChildren = ["left", "center", "right"];
   const weightChildren = [100, 200, 300, 400, 500, 600, 700, 800, 900];
   return (
     <div>

@@ -23,6 +23,7 @@ const OptionsDropDown = (props: Props) => {
           {props.title} Settings
         </h1>
         <button
+          className="dark:text-white"
           onClick={(event) => {
             handleOnClick(event);
           }}

@@ -9,7 +9,6 @@ type Props = {
 };
 
 const UnitConverterDisplay = (props: Props) => {
-  const [clipboard, setClipboard] = useState<string>("");
   const [showMessage, setShowMessage] = useState<boolean>(false);
 
   const handleOnClick = (
@@ -34,7 +33,7 @@ const UnitConverterDisplay = (props: Props) => {
       >
         {props.label} converted from {props.type}
       </label>
-      <div className="flex flex-row justify-between items-center dark:text-white appearance-none block max-w-xl w-auto  text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+      <div className="flex flex-row justify-between items-center dark:text-white appearance-none  max-w-xl w-auto  text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
         <p>{text}</p>
         <button
           onClick={(event) => {

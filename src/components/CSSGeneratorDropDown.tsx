@@ -18,8 +18,8 @@ const CSSGeneratorInputDropDown = (props: Props) => {
       </label>
       <div className=" flex flex-row gap-4">
         <select
-          id="cars"
-          name="cars"
+          id={props.label}
+          name={props.label}
           onChange={(e) => props.changeCSS(e.target.value)}
         >
           {props.children.map((child) => {
