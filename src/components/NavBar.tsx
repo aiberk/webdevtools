@@ -128,7 +128,7 @@ function NavBar({}: Props) {
             }
             to="/generator/design-tokens"
           >
-            CSS Typography Design Token Generator
+            Typography CSS Token Generator
           </NavLink>
         </div>
       </nav>

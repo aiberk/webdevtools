@@ -97,7 +97,9 @@ function CSSDesignTokenGenerator() {
       <div
         className={`overflow-hidden md:h-screen   md:p-0  h-full w-full flex flex-col justify-center items-center`}
       >
-        <h1>Design Token generator</h1>
+        <h1 className="text-3xl font-semibold mb-4">
+          Typography Token Generator
+        </h1>
         <div
           className={`w-full max-w-2xl overflow-hidden p-20`}
           style={{
@@ -138,15 +140,7 @@ function CSSDesignTokenGenerator() {
           >
             Heading 4
           </h4>
-
-          <span>
-            {" "}
-            <caption> Caption Large</caption>
-            <caption> Caption Medium</caption>
-            <caption> Caption Small</caption>
-          </span>
-
-          <a href="#link">Link</a>
+          <br />
           <span>
             {" "}
             <p
@@ -224,6 +218,7 @@ function CSSDesignTokenGenerator() {
               children={
                 <>
                   <OptionsDropDownGenerator
+                    title="H1"
                     fontValue={fontSize}
                     fontFunction={(css) => setFontSize(css)}
                     colorValue={color}
@@ -242,6 +237,7 @@ function CSSDesignTokenGenerator() {
               children={
                 <>
                   <OptionsDropDownGenerator
+                    title="H2"
                     fontValue={H2fontSize}
                     fontFunction={(css) => setH2FontSize(css)}
                     colorValue={H2color}
@@ -260,6 +256,7 @@ function CSSDesignTokenGenerator() {
               children={
                 <>
                   <OptionsDropDownGenerator
+                    title="H3"
                     fontValue={H3fontSize}
                     fontFunction={(css) => setH3FontSize(css)}
                     colorValue={H3color}
@@ -278,6 +275,7 @@ function CSSDesignTokenGenerator() {
               children={
                 <>
                   <OptionsDropDownGenerator
+                    title="H4"
                     fontValue={H4fontSize}
                     fontFunction={(css) => setH4FontSize(css)}
                     colorValue={H4color}
@@ -296,6 +294,7 @@ function CSSDesignTokenGenerator() {
               children={
                 <>
                   <OptionsDropDownGenerator
+                    title="Paragraph"
                     fontValue={paragraphfontSize}
                     fontFunction={(css) => setParagraphFontSize(css)}
                     colorValue={paragraphcolor}
