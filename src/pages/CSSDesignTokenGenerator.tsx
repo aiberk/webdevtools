@@ -13,6 +13,11 @@ function CSSDesignTokenGenerator() {
   const [editorStatus, setEditorStatus] = useState<string>("mobile");
   const [artBoard, setArtBoard] = useState<string>("rgb(255,255,255)");
 
+  const [testState, setTest] = useState({
+    color: "#ff3333",
+    fontSize: "16",
+  });
+
   const [color, setColor] = useState<string>("#000000");
   const [fontSize, setFontSize] = useState<string>("40");
   const [tracking, setTracking] = useState<number>(2);
@@ -89,6 +94,15 @@ function CSSDesignTokenGenerator() {
     textAlign: `${paragraphAlign}`,
   };
 
+  const updateFieldChanged = (key, e) => {
+    let temp = {};
+    let newArr = Object.assign(temp, testState);
+    newArr[`${key}`] = e;
+    console.log(testState);
+    setTest(newArr);
+    console.log(testState);
+  };
+
   return (
     <div className="flex md:flex-row flex-col  bg-zinc-200 dark:bg-zinc-700 ">
       <div className="hidden md:flex pt-11 min-h-screen max-w-xs w-full  flex-col"></div>
@@ -145,7 +159,8 @@ function CSSDesignTokenGenerator() {
             {" "}
             <p
               style={{
-                ...paragraphcssStyle,
+                color: testState.color,
+                fontSize: `${testState.fontSize}px`,
               }}
             >
               {previewText}
@@ -295,8 +310,8 @@ function CSSDesignTokenGenerator() {
                 <>
                   <OptionsDropDownGenerator
                     title="Paragraph"
-                    fontValue={paragraphfontSize}
-                    fontFunction={(css) => setParagraphFontSize(css)}
+                    fontValue={testState.fontSize}
+                    fontFunction={(css) => updateFieldChanged("fontSize", css)}
                     colorValue={paragraphcolor}
                     colorFunction={(css) => setParagraphColor(css)}
                     trackingValue={paragraphtracking}
