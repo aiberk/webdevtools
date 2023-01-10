@@ -18,7 +18,7 @@ const GenerateTokens = (props: Props) => {
     console.log(props.appState);
     console.log(props);
     let final = "";
-    let temp = props.appState.map((item, index) => {
+    props.appState.map((item, index) => {
       let styledComponent = `const ${JSON.stringify(
         item.name
       )}=styled.${JSON.stringify(item.name).toLowerCase()}`;
