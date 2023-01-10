@@ -19,10 +19,22 @@ function CSSDesignTokenGenerator() {
   const [style, setStyle] = useState<string>("normal");
 
   const [H2color, setH2Color] = useState<string>("#000000");
-  const [H2fontSize, setH2FontSize] = useState<string>("40");
+  const [H2fontSize, setH2FontSize] = useState<string>("30");
   const [H2tracking, setH2Tracking] = useState<number>(2);
   const [H2weight, setH2Weight] = useState<number>(400);
   const [H2style, setH2Style] = useState<string>("normal");
+
+  const [H3color, setH3Color] = useState<string>("#000000");
+  const [H3fontSize, setH3FontSize] = useState<string>("25");
+  const [H3tracking, setH3Tracking] = useState<number>(2);
+  const [H3weight, setH3Weight] = useState<number>(400);
+  const [H3style, setH3Style] = useState<string>("normal");
+
+  const [H4color, setH4color] = useState<string>("#000000");
+  const [H4fontSize, setH4FontSize] = useState<string>("15");
+  const [H4tracking, setH4Tracking] = useState<number>(2);
+  const [H4weight, setH4Weight] = useState<number>(400);
+  const [H4style, setH4Style] = useState<string>("normal");
 
   const [paragraphcolor, setParagraphColor] = useState<string>("#000000");
   const [paragraphfontSize, setParagraphFontSize] = useState<string>("16");
@@ -49,6 +61,22 @@ function CSSDesignTokenGenerator() {
     letterSpacing: `${H2tracking}px`,
     fontWeight: `${H2weight}`,
     fontStyle: `${H2style}`,
+  };
+
+  let cssStyleH3 = {
+    color: H3color,
+    fontSize: `${H3fontSize}px`,
+    letterSpacing: `${H3tracking}px`,
+    fontWeight: `${H3weight}`,
+    fontStyle: `${H3style}`,
+  };
+
+  let cssStyleH4 = {
+    color: H4color,
+    fontSize: `${H4fontSize}px`,
+    letterSpacing: `${H4tracking}px`,
+    fontWeight: `${H4weight}`,
+    fontStyle: `${H4style}`,
   };
 
   let paragraphcssStyle = {
@@ -96,7 +124,7 @@ function CSSDesignTokenGenerator() {
           <h3
             className=""
             style={{
-              ...cssStyle,
+              ...cssStyleH3,
             }}
           >
             Heading 3
@@ -104,7 +132,7 @@ function CSSDesignTokenGenerator() {
           <h4
             className=""
             style={{
-              ...cssStyle,
+              ...cssStyleH4,
             }}
           >
             Heading 4
@@ -222,12 +250,6 @@ function CSSDesignTokenGenerator() {
                     name={"Font Style"}
                   />
                   <CSSGeneratorInputDropDown
-                    label={"Heading Align"}
-                    changeCSS={(css) => setHeadingAlign(css)}
-                    children={alignChildren}
-                    name={"Heading Align"}
-                  />
-                  <CSSGeneratorInputDropDown
                     label={"Heading Font Weight"}
                     changeCSS={(css) => setWeight(css)}
                     children={weightChildren}
@@ -278,6 +300,142 @@ function CSSDesignTokenGenerator() {
                 </>
               }
               title={"H2"}
+            />
+
+            <OptionsDropDown
+              children={
+                <>
+                  {" "}
+                  <CSSGeneratorInput
+                    unit={"px"}
+                    type="number"
+                    label={"Heading Font size"}
+                    value={H3fontSize}
+                    changeCSS={(css) => setH3FontSize(css)}
+                  />
+                  <CSSGeneratorInput
+                    unit={"rgb"}
+                    type="color"
+                    label={"Heading Color"}
+                    value={H3color}
+                    changeCSS={(css) => setH3Color(css)}
+                  />
+                  <CSSGeneratorInput
+                    unit={"px"}
+                    type="number"
+                    label={"Heading Letter Spacing"}
+                    value={H3tracking}
+                    changeCSS={(css) => setH3Tracking(css)}
+                  />
+                  <CSSGeneratorInputDropDown
+                    label={"Heading Font Style"}
+                    changeCSS={(css) => setH3Style(css)}
+                    children={styleChildren}
+                    name={"Font Style"}
+                  />
+                  <CSSGeneratorInputDropDown
+                    label={"Heading Font Weight"}
+                    changeCSS={(css) => setH3Weight(css)}
+                    children={weightChildren}
+                    name={"Font Style"}
+                  />
+                </>
+              }
+              title={"H3"}
+            />
+
+            <OptionsDropDown
+              children={
+                <>
+                  {" "}
+                  <CSSGeneratorInput
+                    unit={"px"}
+                    type="number"
+                    label={"Heading Font size"}
+                    value={H4fontSize}
+                    changeCSS={(css) => setH4FontSize(css)}
+                  />
+                  <CSSGeneratorInput
+                    unit={"rgb"}
+                    type="color"
+                    label={"Heading Color"}
+                    value={H4color}
+                    changeCSS={(css) => setH4color(css)}
+                  />
+                  <CSSGeneratorInput
+                    unit={"px"}
+                    type="number"
+                    label={"Heading Letter Spacing"}
+                    value={H4tracking}
+                    changeCSS={(css) => setH4Tracking(css)}
+                  />
+                  <CSSGeneratorInputDropDown
+                    label={"Heading Font Style"}
+                    changeCSS={(css) => setH4Style(css)}
+                    children={styleChildren}
+                    name={"Font Style"}
+                  />
+                  <CSSGeneratorInputDropDown
+                    label={"Heading Font Weight"}
+                    changeCSS={(css) => setH4Weight(css)}
+                    children={weightChildren}
+                    name={"Font Style"}
+                  />
+                </>
+              }
+              title={"H4"}
+            />
+
+            <OptionsDropDown
+              title={"Paragraph"}
+              children={
+                <>
+                  <CSSGeneratorInput
+                    unit={"px"}
+                    type="number"
+                    label={"paragraph font size"}
+                    value={paragraphfontSize}
+                    changeCSS={(css) => setParagraphFontSize(css)}
+                  />
+
+                  <CSSGeneratorInput
+                    unit={"rgb"}
+                    type="color"
+                    label={"paragraph Color"}
+                    value={paragraphcolor}
+                    changeCSS={(css) => setParagraphColor(css)}
+                  />
+
+                  <CSSGeneratorInput
+                    unit={"px"}
+                    type="number"
+                    label={"paragraph Letter Spacing"}
+                    value={paragraphtracking}
+                    changeCSS={(css) => setParagraphTracking(css)}
+                  />
+
+                  <CSSGeneratorInputDropDown
+                    label={"paragraph Font Style"}
+                    changeCSS={(css) => setParagraphStyle(css)}
+                    children={styleChildren}
+                    name={"Font Style"}
+                  />
+
+                  <CSSGeneratorInputDropDown
+                    label={"paragraph Font Weight"}
+                    changeCSS={(css) => setParagraphWeight(css)}
+                    children={weightChildren}
+                    name={"Font Style"}
+                  />
+
+                  <CSSGeneratorInputDropDown
+                    label={"Paragraph Align"}
+                    changeCSS={(css) => setParagraphAlign(css)}
+                    children={alignChildren}
+                    name={"Paragraph Align"}
+                  />
+                </>
+              }
             />
           </div>
         ) : undefined}
