@@ -8,7 +8,7 @@ import OptionsDropDownGenerator from "../components/OptionsDropDownGenerator";
 function CSSDesignTokenGenerator() {
   const [previewHeading, setPreviewHeading] = useState<string>("Heading");
   const [previewText, setPreviewText] = useState<string>(Lorem);
-  const [editorStatus, setEditorStatus] = useState<string>("mobile");
+  const [editorStatus, setEditorStatus] = useState<string>("elements");
   const [artBoard, setArtBoard] = useState<string>("rgb(255,255,255)");
 
   const [appState, setAppState] = useState([
@@ -22,7 +22,7 @@ function CSSDesignTokenGenerator() {
     },
     {
       name: "H2",
-      color: "#ff0000",
+      color: "#000000",
       fontSize: "30",
       tracking: 0,
       weight: 500,
@@ -53,37 +53,6 @@ function CSSDesignTokenGenerator() {
       style: "normal",
     },
   ]);
-
-  const [color, setColor] = useState<string>("#000000");
-  const [fontSize, setFontSize] = useState<string>("40");
-  const [tracking, setTracking] = useState<number>(2);
-  const [weight, setWeight] = useState<number>(400);
-  const [style, setStyle] = useState<string>("normal");
-
-  const [paragraphcolor, setParagraphColor] = useState<string>("#000000");
-  const [paragraphfontSize, setParagraphFontSize] = useState<string>("16");
-  const [paragraphtracking, setParagraphTracking] = useState<number>(0);
-  const [paragraphweight, setParagraphWeight] = useState<number>(400);
-  const [paragraphstyle, setParagraphStyle] = useState<string>("normal");
-  const [paragraphAlign, setParagraphAlign] = useState<string>("left");
-
-  ///Change for export
-  let cssStyle = {
-    color: color,
-    fontSize: `${fontSize}px`,
-    letterSpacing: `${tracking}px`,
-    fontWeight: `${weight}`,
-    fontStyle: `${style}`,
-  };
-
-  let paragraphcssStyle = {
-    color: paragraphcolor,
-    fontSize: `${paragraphfontSize}px`,
-    letterSpacing: `${paragraphtracking}px`,
-    fontWeight: `${paragraphweight}`,
-    fontStyle: `${paragraphstyle}`,
-    textAlign: `${paragraphAlign}`,
-  };
 
   const updateStateChanged = (index, key, e) => {
     //Makes a copy of the state object, to edit then replace
@@ -181,12 +150,6 @@ function CSSDesignTokenGenerator() {
 
       {/* Input Tab Left of UI */}
       <div className=" bg-white p-5 z-10 md:pt-20 md:max-w-xs dark:bg-zinc-800 w-96">
-        {/* <CopyToClipBoard
-          label={"Get CSS"}
-          input={[cssStyle, paragraphcssStyle]}
-          equation={0}
-          type={""}
-        /> */}
         <button
           onClick={() => {
             alert("Downloading");
@@ -196,11 +159,11 @@ function CSSDesignTokenGenerator() {
           Download Tokens
         </button>
         <div className="flex flex-row mt-2 mb-6 w-full">
-          {editorStatus != "mobile" ? (
+          {editorStatus != "elements" ? (
             <button
               className="w-full bg-gray-200 hover:bg-gray-400 hover:text-white text-gray-800 font-bold py-1 px-2 rounded-l "
               onClick={() => {
-                setEditorStatus("mobile");
+                setEditorStatus("elements");
               }}
             >
               Elements
@@ -209,7 +172,7 @@ function CSSDesignTokenGenerator() {
             <button
               className="w-full bg-gray-300 hover:bg-gray-400 hover:text-white text-gray-800 font-bold py-1 px-2 rounded-l "
               onClick={() => {
-                setEditorStatus("mobile");
+                setEditorStatus("elements");
               }}
             >
               Elements
@@ -258,46 +221,8 @@ function CSSDesignTokenGenerator() {
           </div>
         ) : undefined}
 
-        {/*  Tab */}
-        {editorStatus == "mobile" ? (
-          <div className="flex flex-col md:p-0 p-10 w-full max-w-xl gap-4">
-            {appState.map((item, index) => {
-              return (
-                <OptionsDropDown
-                  title={item.name}
-                  children={
-                    <>
-                      <OptionsDropDownGenerator
-                        title={item.name}
-                        fontValue={appState[index].fontSize}
-                        fontFunction={(css) =>
-                          updateStateChanged(index, "fontSize", css)
-                        }
-                        colorValue={appState[index].color}
-                        colorFunction={(css) =>
-                          updateStateChanged(index, "color", css)
-                        }
-                        trackingValue={appState[index].tracking}
-                        trackingFunction={(css) =>
-                          updateStateChanged(index, "tracking", css)
-                        }
-                        styleFunction={(css) =>
-                          updateStateChanged(index, "style", css)
-                        }
-                        weightFunction={(css) =>
-                          updateStateChanged(index, "weight", css)
-                        }
-                      />
-                    </>
-                  }
-                />
-              );
-            })}
-          </div>
-        ) : undefined}
-
-        {/* Paragraph Tab */}
-        {editorStatus == "desktop" ? (
+        {/*  Elements Tab */}
+        {editorStatus == "elements" ? (
           <div className="flex flex-col md:p-0 p-10 w-full max-w-xl gap-4">
             {appState.map((item, index) => {
               return (
