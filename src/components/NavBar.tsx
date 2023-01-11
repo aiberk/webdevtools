@@ -61,7 +61,7 @@ function NavBar({}: Props) {
           </NavLink>
         </div>
 
-        <div className="w-full p-4 dark:text-zinc-100">
+        {/* <div className="w-full p-4 dark:text-zinc-100">
           <NavLink
             className={({ isActive }) => (isActive ? "font-bold" : undefined)}
             to="/generator/design-tokens"
@@ -71,7 +71,7 @@ function NavBar({}: Props) {
               <h4 className="w-40"> Color Tokens</h4>{" "}
             </div>
           </NavLink>
-        </div>
+        </div> */}
       </nav>
     </>
   );
