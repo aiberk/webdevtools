@@ -22,18 +22,15 @@ function NavBar({}: Props) {
             Web Dev Tool Box <span className="text-2xl p-1">🧰</span>
           </NavLink>
 
-          <button
-            className="bg-red-400 dark:bg-blue-500 ml-2 mr-2 p-2"
-            onClick={handleOnClick}
-          >
-            Toggle {colorTheme} mode
+          <button className="text-3xl ml-2 mr-2 p-2" onClick={handleOnClick}>
+            {colorTheme == "light" ? "🌞" : "🌛"}
           </button>
         </nav>
       </div>
 
       <nav className=" fixed  hidden lg:flex pt-11 min-h-screen bg-zinc-100 dark:bg-zinc-800 max-w-xs w-100  flex-col pr-4">
         <div className="w-full    dark:border-white p-2 dark:text-white">
-          <h1 className="mt-4">
+          <h1 className="mt-6">
             <strong className="text-lg">Tools:</strong>
           </h1>
         </div>
