@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import CSSGeneratorInput from "../components/CSSGeneratorInput";
-import CopyToClipBoard from "../components/CopyToClipBoard";
 import { Lorem } from "../components/Constants";
 import OptionsDropDown from "../components/OptionsDropDown";
 import OptionsDropDownGenerator from "../components/OptionsDropDownGenerator";

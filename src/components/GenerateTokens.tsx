@@ -22,7 +22,7 @@ const GenerateTokens = (props: Props) => {
       let styledComponent = `const ${JSON.stringify(
         item.name
       )}=styled.${JSON.stringify(item.name).toLowerCase()}`;
-      let body = `\`color:${item.color}; fontSize${item.fontSize}; fontWeight:${item.weight}; fontStyle:${item.style}; letterSpacing:${item.tracking};\``;
+      let body = `\`color:${item.color}; fontSize:${item.fontSize}; fontWeight:${item.weight}; fontStyle:${item.style}; letterSpacing:${item.tracking};\``;
       final = final + styledComponent + body;
     });
     let print = final.replace(regex, "");
