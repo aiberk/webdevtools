@@ -29,22 +29,17 @@ function CSSDesignTokenGenerator() {
     let temp = appState.map((item) => {
       return { ...item };
     });
-    console.log(temp);
     temp.push(e);
-    console.log(temp);
     setAppState(temp);
-    console.log(appState);
   };
 
   const updateElementDeleted = (e) => {
     // Makes a copy of the state object, to edit then replace
-    let temp = appState.map((item, index) => {
+    let temp = appState.map((item) => {
       return { ...item };
     });
     temp.splice(e, 1);
-    console.log(appState);
     setAppState(temp);
-    console.log(appState);
   };
 
   return (
@@ -131,6 +126,7 @@ function CSSDesignTokenGenerator() {
                 </>
               }
               title={"Test Title"}
+              tag={""}
             />
           </div>
         ) : undefined}
@@ -143,6 +139,7 @@ function CSSDesignTokenGenerator() {
                 <OptionsDropDown
                   key={item.name}
                   title={item.name}
+                  tag={item.tag}
                   children={
                     <>
                       <OptionsDropDownGenerator
@@ -169,6 +166,11 @@ function CSSDesignTokenGenerator() {
                         }
                         weightFunction={(css) =>
                           updateStateChanged(index, "weight", css)
+                        }
+                        tag={item.tag}
+                        placeholder={item.placeholder}
+                        placeHolderFunction={(css) =>
+                          updateStateChanged(index, "placeholder", css)
                         }
                       />
                     </>

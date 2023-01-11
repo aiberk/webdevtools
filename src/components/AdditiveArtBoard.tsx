@@ -21,7 +21,7 @@ const AdditiveArtBoard = (props: Props) => {
                 fontWeight: `${props.data[index].weight}`,
               }}
             >
-              {item.name}
+              {item.placeholder == "" ? item.name : item.placeholder}
             </h1>
           );
         } else if (item.tag == "h2") {
@@ -35,7 +35,7 @@ const AdditiveArtBoard = (props: Props) => {
                 fontWeight: `${props.data[index].weight}`,
               }}
             >
-              {item.name}
+              {item.placeholder == "" ? item.name : item.placeholder}
             </h2>
           );
         } else if (item.tag == "h3") {
@@ -49,7 +49,7 @@ const AdditiveArtBoard = (props: Props) => {
                 fontWeight: `${props.data[index].weight}`,
               }}
             >
-              {item.name}
+              {item.placeholder == "" ? item.name : item.placeholder}
             </h3>
           );
         } else if (item.tag == "h4") {
@@ -63,7 +63,7 @@ const AdditiveArtBoard = (props: Props) => {
                 fontWeight: `${props.data[index].weight}`,
               }}
             >
-              {item.name}
+              {item.placeholder == "" ? item.name : item.placeholder}
             </h4>
           );
         } else if (item.tag == "p") {
@@ -77,11 +77,11 @@ const AdditiveArtBoard = (props: Props) => {
                 fontWeight: `${props.data[index].weight}`,
               }}
             >
-              {ShortLorem}
+              {item.placeholder == "" ? Lorem : item.placeholder}
             </p>
           );
         } else {
-          return <h1>I dont have a tag :(</h1>;
+          return <h1>I dont have a name or tag yet :(</h1>;
         }
       })}
     </div>

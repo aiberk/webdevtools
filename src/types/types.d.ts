@@ -1,4 +1,5 @@
 export interface appStateObject {
+  placeholder: string | undefined;
   name: string;
   tag: string;
   color: string;

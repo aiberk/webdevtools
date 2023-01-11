@@ -37,6 +37,7 @@ const AddElement = (props: Props) => {
       tracking: 0,
       weight: 500,
       style: "normal",
+      placeholder: "",
     };
     props.setAppState(prototype);
     setIsOpen(false);

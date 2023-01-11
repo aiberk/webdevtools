@@ -4,6 +4,7 @@ import { useState } from "react";
 type Props = {
   title: string;
   children: any;
+  tag: string;
 };
 
 const OptionsDropDown = (props: Props) => {
@@ -15,13 +16,22 @@ const OptionsDropDown = (props: Props) => {
     event.preventDefault();
     setIsOpen(!isOpen);
   };
+
   return (
     <>
       {" "}
       <div className="flex flex-row justify-between align-middle items-baseline">
-        <h1 className="dark:text-white block uppercase tracking-wide text-gray-700 text-sm font-bold ">
-          {props.title} Settings
-        </h1>
+        <div className="flex flex-row gap-1">
+          {" "}
+          <h1 className="dark:text-white block uppercase tracking-wide text-gray-700 text-sm font-bold ">
+            {props.title}{" "}
+          </h1>
+          <code className="text-orange-500 text-xs bg-zinc-200 dark:bg-zinc-700 p-0.5 rounded-sm lowercase ">
+            {`<`}
+            {props.tag}
+            {`>`}
+          </code>
+        </div>
         <div>
           {" "}
           <button

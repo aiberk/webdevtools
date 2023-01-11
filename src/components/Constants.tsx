@@ -12,6 +12,7 @@ export const starterData = [
     tracking: 0,
     weight: 400,
     style: "normal",
+    placeholder: "",
   },
   {
     name: "H2",
@@ -21,6 +22,7 @@ export const starterData = [
     tracking: 0,
     weight: 500,
     style: "normal",
+    placeholder: "",
   },
   {
     name: "H3",
@@ -30,6 +32,7 @@ export const starterData = [
     tracking: 0,
     weight: 500,
     style: "normal",
+    placeholder: "",
   },
   {
     name: "P",
@@ -39,5 +42,6 @@ export const starterData = [
     tracking: 0,
     weight: 500,
     style: "normal",
+    placeholder: "",
   },
 ];

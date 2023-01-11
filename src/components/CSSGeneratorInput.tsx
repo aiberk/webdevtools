@@ -16,8 +16,7 @@ const CSSGeneratorInput = (props: Props) => {
           className="dark:text-white block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
           htmlFor="fname"
         >
-          {props.label}{" "}
-          {props.unit == undefined ? undefined : "in " + props.unit}
+          {props.label} {props.unit == undefined ? undefined : props.unit}
         </label>
         <input
           type={props.type}

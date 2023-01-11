@@ -14,7 +14,10 @@ type Props = {
   styleFunction: React.SetStateAction<any>;
   weightFunction: React.SetStateAction<any>;
   appState: appStateObject[];
+  placeHolderFunction: React.SetStateAction<any>;
   setAppState: any;
+  tag: string;
+  placeholder: string;
 };
 
 const OptionsDropDownGenerator = (props: Props) => {
@@ -24,8 +27,22 @@ const OptionsDropDownGenerator = (props: Props) => {
   const handleOnClick = (title) => {
     props.setAppState(title);
   };
+  let displayText = (placeholder) => {
+    if (placeholder == "") {
+      return props.title;
+    } else {
+      return props.placeholder;
+    }
+  };
   return (
     <div className="flex flex-col gap-4">
+      <CSSGeneratorInput
+        unit={""}
+        type="text"
+        label={`${props.title} artboard text`}
+        value={`${displayText(props.placeholder)}`}
+        changeCSS={(css) => props.placeHolderFunction(css)}
+      />
       <CSSGeneratorInput
         unit={"px"}
         type="number"
