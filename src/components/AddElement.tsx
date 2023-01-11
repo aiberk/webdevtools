@@ -25,19 +25,20 @@ const elementList = [
 
 const AddElement = (props: Props) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [name, setName] = useState<string>("");
+  const [element, setElement] = useState<string>("");
 
-  const handleOnChange = (e) => {
-    let ee = {
-      name: `${e}`,
-      tag: `${e}`,
+  const handleOnChange = () => {
+    let prototype = {
+      name: `${name}`,
+      tag: `${element}`,
       color: "#000000",
-      fontSize: "20",
+      fontSize: "15",
       tracking: 0,
       weight: 500,
       style: "normal",
     };
-    console.log(e);
-    props.setAppState(ee);
+    props.setAppState(prototype);
     setIsOpen(false);
   };
 
@@ -59,17 +60,17 @@ const AddElement = (props: Props) => {
             label={"Add Name"}
             value={undefined}
             type={""}
-            changeCSS={undefined}
+            changeCSS={(e) => setName(e)}
           />
           <CSSGeneratorInputDropDown
             label={"html element"}
-            changeCSS={(e) => handleOnChange(e)}
+            changeCSS={(e) => setElement(e)}
             children={elementList}
             name={"html element"}
           />
           <button
             onClick={() => {
-              console.log("yo");
+              handleOnChange();
             }}
             className="w-full bg-blue-500 text-white font-semibold pt-2 pb-2 rounded-xs"
           >
