@@ -31,32 +31,45 @@ function NavBar({}: Props) {
         </nav>
       </div>
 
-      <nav className=" fixed  hidden lg:flex pt-11 min-h-screen bg-zinc-100 dark:bg-zinc-800 max-w-xs w-full  flex-col">
-        <div className="w-full   border-t border-b border-zinc-200  dark:border-white p-2 dark:text-white">
-          <h1>
-            <strong>Unit Converters</strong>
+      <nav className=" fixed  hidden lg:flex pt-11 min-h-screen bg-zinc-100 dark:bg-zinc-800 max-w-xs w-100  flex-col pr-4">
+        <div className="w-full    dark:border-white p-2 dark:text-white">
+          <h1 className="mt-4">
+            <strong className="text-lg">Tools:</strong>
           </h1>
         </div>
-        <div className="w-full  border-b p-4 dark:text-white">
+        <div className="w-full  p-4 dark:text-white">
           <NavLink
             className={({ isActive }) => (isActive ? "font-bold" : undefined)}
             to="/converter/px"
           >
-            PX to Anything
+            <div className="flex flex-row gap-2 align-middle items-center w-full">
+              <p className="text-xl">👾</p>
+              <h4 className="w-40"> Pixel Converter</h4>{" "}
+            </div>
           </NavLink>
         </div>
 
-        <div className="w-full   border-t border-b border-zinc-200  dark:border-zinc-100 p-2 dark:text-white">
-          <h1>
-            <strong>CSS Generators</strong>
-          </h1>
-        </div>
-        <div className="w-full  border-b p-4 dark:text-zinc-100">
+        <div className="w-full p-4 dark:text-zinc-100">
           <NavLink
             className={({ isActive }) => (isActive ? "font-bold" : undefined)}
             to="/generator/design-tokens"
           >
-            Typography CSS Token Generator
+            <div className="flex flex-row gap-2  align-middle items-center w-full">
+              <p className="text-xl">🔤</p>
+              <h4 className="w-40"> Typography Tokens</h4>{" "}
+            </div>
+          </NavLink>
+        </div>
+
+        <div className="w-full p-4 dark:text-zinc-100">
+          <NavLink
+            className={({ isActive }) => (isActive ? "font-bold" : undefined)}
+            to="/generator/design-tokens"
+          >
+            <div className="flex flex-row gap-2  align-middle items-center w-full">
+              <p className="text-xl"> 🌈</p>
+              <h4 className="w-40"> Color Tokens</h4>{" "}
+            </div>
           </NavLink>
         </div>
       </nav>
