@@ -15,8 +15,6 @@ type Props = {
 const GenerateTokens = (props: Props) => {
   const handleClick = () => {
     const regex = /"/gm;
-    console.log(props.appState);
-    console.log(props);
     let final = "";
     props.appState.map((item, index) => {
       let styledComponent = `const ${JSON.stringify(
@@ -27,6 +25,7 @@ const GenerateTokens = (props: Props) => {
     });
     let print = final.replace(regex, "");
     navigator.clipboard.writeText(print);
+    console.log(props.appState);
   };
 
   return (

@@ -4,6 +4,7 @@ import { Lorem } from "../components/Constants";
 import OptionsDropDown from "../components/OptionsDropDown";
 import OptionsDropDownGenerator from "../components/OptionsDropDownGenerator";
 import GenerateTokens from "../components/GenerateTokens";
+import AddElement from "../components/AddElement";
 
 function CSSDesignTokenGenerator() {
   const [previewHeading, setPreviewHeading] = useState<string>("Heading");
@@ -61,6 +62,18 @@ function CSSDesignTokenGenerator() {
     });
     temp[index][key] = e;
     setAppState(temp);
+  };
+
+  const updateElementAdded = (e) => {
+    //Makes a copy of the state object, to edit then replace
+    let temp = appState.map((item) => {
+      return { ...item };
+    });
+    console.log(temp);
+    temp.push(e);
+    console.log(temp);
+    setAppState(temp);
+    console.log(appState);
   };
 
   return (
@@ -250,6 +263,12 @@ function CSSDesignTokenGenerator() {
                 />
               );
             })}
+            {/* <AddElement
+              appState={appState}
+              setAppState={(e) => {
+                updateElementAdded(e);
+              }}
+            /> */}
           </div>
         ) : undefined}
       </div>
