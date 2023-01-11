@@ -8,11 +8,13 @@ type Props = {
 const GenerateTokens = (props: Props) => {
   const handleClick = () => {
     const regex = /"/gm;
+    const regex2 = / /gm;
     let final = "";
     props.appState.map((item, index) => {
+      let cleanName = item.name.replace(regex2, "");
       let styledComponent = `const ${JSON.stringify(
-        item.name
-      )}=styled.${JSON.stringify(item.name).toLowerCase()}`;
+        cleanName
+      )}=styled.${JSON.stringify(cleanName).toLowerCase()}`;
       let body = `\`color:${item.color}; fontSize:${item.fontSize}; fontWeight:${item.weight}; fontStyle:${item.style}; letterSpacing:${item.tracking};\``;
       final = final + styledComponent + body;
     });
