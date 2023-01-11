@@ -82,6 +82,17 @@ function CSSDesignTokenGenerator() {
     console.log(appState);
   };
 
+  const updateElementDeleted = (e) => {
+    // Makes a copy of the state object, to edit then replace
+    let temp = appState.map((item, index) => {
+      return { ...item };
+    });
+    temp.splice(e, 1);
+    console.log(appState);
+    setAppState(temp);
+    console.log(appState);
+  };
+
   return (
     <div className="flex md:flex-row flex-col  bg-zinc-200 dark:bg-zinc-700 ">
       <div className="hidden md:flex pt-11 min-h-screen max-w-xs w-full  flex-col"></div>
@@ -181,6 +192,11 @@ function CSSDesignTokenGenerator() {
                   children={
                     <>
                       <OptionsDropDownGenerator
+                        index={index}
+                        appState={appState}
+                        setAppState={(e) => {
+                          updateElementDeleted(e);
+                        }}
                         title={item.name}
                         fontValue={appState[index].fontSize}
                         fontFunction={(css) =>

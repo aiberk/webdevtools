@@ -1,7 +1,9 @@
 import React from "react";
 import CSSGeneratorInput from "./CSSGeneratorInput";
 import CSSGeneratorInputDropDown from "./CSSGeneratorDropDown";
+import { appStateObject } from "../types/types";
 type Props = {
+  index: number;
   title: string;
   fontValue: string;
   fontFunction: React.SetStateAction<any>;
@@ -11,11 +13,17 @@ type Props = {
   trackingFunction: React.SetStateAction<any>;
   styleFunction: React.SetStateAction<any>;
   weightFunction: React.SetStateAction<any>;
+  appState: appStateObject[];
+  setAppState: any;
 };
 
 const OptionsDropDownGenerator = (props: Props) => {
   const styleChildren = ["normal", "italic", "oblique"];
   const weightChildren = [100, 200, 300, 400, 500, 600, 700, 800, 900];
+
+  const handleOnClick = (title) => {
+    props.setAppState(title);
+  };
   return (
     <div className="flex flex-col gap-4">
       <CSSGeneratorInput
@@ -51,6 +59,14 @@ const OptionsDropDownGenerator = (props: Props) => {
         children={weightChildren}
         name={"Font Style"}
       />
+      <button
+        className="bg-red-400 pt-1 pb-2 pr-4 pl-4  rounded-lg text-white"
+        onClick={() => {
+          handleOnClick(props.index);
+        }}
+      >
+        Delete
+      </button>
     </div>
   );
 };

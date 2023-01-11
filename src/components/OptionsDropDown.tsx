@@ -22,14 +22,17 @@ const OptionsDropDown = (props: Props) => {
         <h1 className="dark:text-white block uppercase tracking-wide text-gray-700 text-sm font-bold ">
           {props.title} Settings
         </h1>
-        <button
-          className="dark:text-white"
-          onClick={(event) => {
-            handleOnClick(event);
-          }}
-        >
-          {isOpen ? "-" : "+"}
-        </button>
+        <div>
+          {" "}
+          <button
+            className="dark:text-white"
+            onClick={(event) => {
+              handleOnClick(event);
+            }}
+          >
+            {isOpen ? "-" : "+"}
+          </button>
+        </div>
       </div>
       {isOpen ? <div>{props.children}</div> : undefined}
     </>

@@ -49,7 +49,7 @@ const AddElement = (props: Props) => {
   return (
     <div className="flex flex-col justify-center gap-4">
       <button
-        className="bg-green-500 pt-1 pb-2 pr-4 pl-4 text-2xl rounded-lg"
+        className="bg-green-600 pt-1 pb-2 pr-4 pl-4 text-2xl rounded-lg text-white"
         onClick={() => handleOnClick()}
       >
         +
