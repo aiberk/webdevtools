@@ -3,6 +3,9 @@ export const Lorem =
 export const ShortLorem =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at convallis orci. Fusce pharetra dolor ut pharetra elementum. Morbi fermentum lacus velit, nec euismod dolor hendrerit a.";
 
+export const Sentence =
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+
 export const starterData = [
   {
     name: "H1",

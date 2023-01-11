@@ -42,6 +42,7 @@ const OptionsDropDownGenerator = (props: Props) => {
         label={`${props.title} artboard text`}
         value={`${displayText(props.placeholder)}`}
         changeCSS={(css) => props.placeHolderFunction(css)}
+        tag={props.tag}
       />
       <CSSGeneratorInput
         unit={"px"}
