@@ -3,6 +3,7 @@ import { useState } from "react";
 import { appStateObject } from "../types/types";
 import { ShortLorem } from "./Constants";
 import CSSGeneratorInputDropDown from "./CSSGeneratorDropDown";
+import CSSGeneratorInput from "./CSSGeneratorInput";
 
 type Props = {
   appState: appStateObject[];
@@ -45,15 +46,36 @@ const AddElement = (props: Props) => {
     // props.setAppState(ee);
   };
   return (
-    <div>
-      <button onClick={() => handleOnClick()}>AddElement</button>{" "}
+    <div className="flex flex-col justify-center gap-4">
+      <button
+        className="bg-green-500 pt-1 pb-2 pr-4 pl-4 text-2xl rounded-lg"
+        onClick={() => handleOnClick()}
+      >
+        +
+      </button>{" "}
       {isOpen ? (
-        <CSSGeneratorInputDropDown
-          label={"html element"}
-          changeCSS={(e) => handleOnChange(e)}
-          children={elementList}
-          name={"html element"}
-        />
+        <form className="flex flex-col gap-2">
+          <CSSGeneratorInput
+            label={"Add Name"}
+            value={undefined}
+            type={""}
+            changeCSS={undefined}
+          />
+          <CSSGeneratorInputDropDown
+            label={"html element"}
+            changeCSS={(e) => handleOnChange(e)}
+            children={elementList}
+            name={"html element"}
+          />
+          <button
+            onClick={() => {
+              console.log("yo");
+            }}
+            className="w-full bg-blue-500 text-white font-semibold pt-2 pb-2 rounded-xs"
+          >
+            Add Element
+          </button>
+        </form>
       ) : undefined}
     </div>
   );
