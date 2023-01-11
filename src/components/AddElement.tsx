@@ -55,7 +55,7 @@ const AddElement = (props: Props) => {
         +
       </button>{" "}
       {isOpen ? (
-        <form className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2">
           <CSSGeneratorInput
             label={"Add Name"}
             value={undefined}
@@ -76,7 +76,7 @@ const AddElement = (props: Props) => {
           >
             Add Element
           </button>
-        </form>
+        </div>
       ) : undefined}
     </div>
   );
