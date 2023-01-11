@@ -1,12 +1,5 @@
 import React from "react";
-interface appStateObject {
-  name: string;
-  color: string;
-  fontSize: string;
-  tracking: number;
-  weight: number;
-  style: string;
-}
+import { appStateObject } from "../types/types";
 
 type Props = {
   appState: appStateObject[];
@@ -15,6 +8,7 @@ type Props = {
 
 let ee = {
   name: "TETETETE",
+  tag: "p",
   color: "#000000",
   fontSize: "20",
   tracking: 0,

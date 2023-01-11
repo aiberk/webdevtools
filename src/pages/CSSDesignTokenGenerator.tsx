@@ -5,6 +5,7 @@ import OptionsDropDown from "../components/OptionsDropDown";
 import OptionsDropDownGenerator from "../components/OptionsDropDownGenerator";
 import GenerateTokens from "../components/GenerateTokens";
 import AddElement from "../components/AddElement";
+import AdditiveArtBoard from "../components/AdditiveArtBoard";
 
 function CSSDesignTokenGenerator() {
   const [previewHeading, setPreviewHeading] = useState<string>("Heading");
@@ -15,6 +16,7 @@ function CSSDesignTokenGenerator() {
   const [appState, setAppState] = useState([
     {
       name: "H1",
+      tag: "h1",
       color: "#000000",
       fontSize: "40",
       tracking: 0,
@@ -23,6 +25,7 @@ function CSSDesignTokenGenerator() {
     },
     {
       name: "H2",
+      tag: "h2",
       color: "#000000",
       fontSize: "30",
       tracking: 0,
@@ -31,6 +34,7 @@ function CSSDesignTokenGenerator() {
     },
     {
       name: "H3",
+      tag: "h3",
       color: "#000000",
       fontSize: "25",
       tracking: 0,
@@ -39,6 +43,7 @@ function CSSDesignTokenGenerator() {
     },
     {
       name: "H4",
+      tag: "h4",
       color: "#000000",
       fontSize: "20",
       tracking: 0,
@@ -47,6 +52,7 @@ function CSSDesignTokenGenerator() {
     },
     {
       name: "P",
+      tag: "p",
       color: "#000000",
       fontSize: "16",
       tracking: 0,
@@ -94,6 +100,7 @@ function CSSDesignTokenGenerator() {
             boxShadow: `0px -1px 5px 1px rgba(0,0,0,0.2)`,
           }}
         >
+          <AdditiveArtBoard data={appState} />
           <h1
             className=""
             style={{
@@ -263,12 +270,12 @@ function CSSDesignTokenGenerator() {
                 />
               );
             })}
-            {/* <AddElement
+            <AddElement
               appState={appState}
               setAppState={(e) => {
                 updateElementAdded(e);
               }}
-            /> */}
+            />
           </div>
         ) : undefined}
       </div>
