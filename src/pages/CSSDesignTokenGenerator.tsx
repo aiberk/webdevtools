@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CSSGeneratorInput from "../components/CSSGeneratorInput";
-import { Lorem } from "../components/Constants";
+import { Lorem, starterData } from "../components/Constants";
 import OptionsDropDown from "../components/OptionsDropDown";
 import OptionsDropDownGenerator from "../components/OptionsDropDownGenerator";
 import GenerateTokens from "../components/GenerateTokens";
@@ -13,53 +13,7 @@ function CSSDesignTokenGenerator() {
   const [editorStatus, setEditorStatus] = useState<string>("elements");
   const [artBoard, setArtBoard] = useState<string>("rgb(255,255,255)");
 
-  const [appState, setAppState] = useState([
-    {
-      name: "H1",
-      tag: "h1",
-      color: "#000000",
-      fontSize: "40",
-      tracking: 0,
-      weight: 400,
-      style: "normal",
-    },
-    {
-      name: "H2",
-      tag: "h2",
-      color: "#000000",
-      fontSize: "30",
-      tracking: 0,
-      weight: 500,
-      style: "normal",
-    },
-    {
-      name: "H3",
-      tag: "h3",
-      color: "#000000",
-      fontSize: "25",
-      tracking: 0,
-      weight: 500,
-      style: "normal",
-    },
-    {
-      name: "H4",
-      tag: "h4",
-      color: "#000000",
-      fontSize: "20",
-      tracking: 0,
-      weight: 500,
-      style: "normal",
-    },
-    {
-      name: "P",
-      tag: "p",
-      color: "#000000",
-      fontSize: "16",
-      tracking: 0,
-      weight: 500,
-      style: "normal",
-    },
-  ]);
+  const [appState, setAppState] = useState(starterData);
 
   const updateStateChanged = (index, key, e) => {
     //Makes a copy of the state object, to edit then replace
