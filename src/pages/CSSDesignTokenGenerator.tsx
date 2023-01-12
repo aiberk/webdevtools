@@ -73,7 +73,7 @@ function CSSDesignTokenGenerator() {
               </h1>
               <div className="flex justify-center">
                 <button
-                  className="bg-green-500 pt-1 pb-1 pr-4 pl-4 rounded-sm"
+                  className="bg-green-500 text-white pt-1 pb-1 pr-4 pl-4 rounded-sm"
                   onClick={() => {
                     setAppState(starterData);
                   }}
