@@ -40,6 +40,7 @@ function CSSDesignTokenGenerator() {
     });
     temp.splice(e, 1);
     setAppState(temp);
+    console.log(appState);
   };
 
   return (
@@ -146,10 +147,29 @@ function CSSDesignTokenGenerator() {
                     value={artBoard}
                     changeCSS={(css) => setArtBoard(css)}
                   />
+                  <div className="flex flex-col justify-center">
+                    {" "}
+                    <button
+                      className="text-white bg-green-500 pt-1 pb-1 pr-2 pl-2 rounded-sm w-full mt-4 "
+                      onClick={() => {
+                        setAppState(starterData);
+                      }}
+                    >
+                      Use Starter Elements
+                    </button>
+                    <button
+                      className="text-white bg-red-500 pt-1 pb-1 pr-2 pl-2 rounded-sm w-full mt-4 "
+                      onClick={() => {
+                        setAppState([]);
+                      }}
+                    >
+                      Reset Artboard
+                    </button>
+                  </div>
                 </>
               }
-              title={"Test Title"}
-              tag={""}
+              title={"Artboard"}
+              tag={"Setting"}
             />
           </div>
         ) : undefined}
