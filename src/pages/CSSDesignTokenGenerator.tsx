@@ -137,7 +137,7 @@ function CSSDesignTokenGenerator() {
             {appState.map((item, index) => {
               return (
                 <OptionsDropDown
-                  key={item.name}
+                  key={index}
                   title={item.name}
                   tag={item.tag}
                   children={

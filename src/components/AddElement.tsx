@@ -11,6 +11,7 @@ type Props = {
 };
 
 const elementList = [
+  "Pick HTML Element",
   "h1",
   "h2",
   "h3",
@@ -29,167 +30,6 @@ const elementList = [
   "sub",
 ];
 
-const completeElementList = `<a>
-<abbr>
-Deprecated
-<acronym>
-<address>
-Deprecated
-<applet>
-<area>
-<article>
-<aside>
-<audio>
-<b>
-<base>
-<bdi>
-<bdo>
-Deprecated
-<bgsound>
-Deprecated
-<big>
-Deprecated
-<blink>
-<blockquote>
-<body>
-<br>
-<button>
-<canvas>
-<caption>
-Deprecated
-<center>
-<cite>
-<code>
-<col>
-<colgroup>
-Non-standardDeprecated
-<content>
-<data>
-<datalist>
-<dd>
-<del>
-<details>
-<dfn>
-<dialog>
-Deprecated
-<dir>
-<div>
-<dl>
-<dt>
-<em>
-<embed>
-<fieldset>
-<figcaption>
-<figure>
-Deprecated
-<font>
-<footer>
-<form>
-Deprecated
-<frame>
-Deprecated
-<frameset>
-<h1>
-<head>
-<header>
-<hgroup>
-<hr>
-<html>
-<i>
-<iframe>
-Non-standardDeprecated
-<image>
-<img>
-<input>
-<ins>
-<kbd>
-Deprecated
-<keygen>
-<label>
-<legend>
-<li>
-<link>
-<main>
-<map>
-<mark>
-Deprecated
-<marquee>
-<menu>
-Non-standardDeprecated
-<menuitem>
-<meta>
-<meter>
-<nav>
-Deprecated
-<nobr>
-Deprecated
-<noembed>
-Deprecated
-<noframes>
-<noscript>
-<object>
-<ol>
-<optgroup>
-<option>
-<output>
-<p>
-Deprecated
-<param>
-<picture>
-Deprecated
-<plaintext>
-Experimental
-<portal>
-<pre>
-<progress>
-<q>
-Deprecated
-<rb>
-<rp>
-<rt>
-Deprecated
-<rtc>
-<ruby>
-<s>
-<samp>
-<script>
-<section>
-<select>
-Non-standardDeprecated
-<shadow>
-<slot>
-<small>
-<source>
-Deprecated
-<spacer>
-<span>
-Deprecated
-<strike>
-<strong>
-<style>
-<sub>
-<summary>
-<sup>
-<table>
-<tbody>
-<td>
-<template>
-<textarea>
-<tfoot>
-<th>
-<thead>
-<time>
-<title>
-<tr>
-<track>
-Deprecated
-<tt>
-<u>
-<ul>
-<var>
-<video>
-<wbr>`;
-
 const AddElement = (props: Props) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [name, setName] = useState<string>("");
@@ -197,8 +37,8 @@ const AddElement = (props: Props) => {
 
   const handleOnChange = () => {
     let prototype = {
-      name: `${name}`,
-      tag: `${element}`,
+      name: `${name.length == 0 ? "Unnamed" : name}`,
+      tag: `${element.length == 0 ? "h1" : element}`,
       color: "#000000",
       fontSize: "15",
       tracking: 0,
@@ -208,6 +48,8 @@ const AddElement = (props: Props) => {
     };
     props.setAppState(prototype);
     setIsOpen(false);
+    setElement("");
+    setName("");
   };
 
   const handleOnClick = () => {

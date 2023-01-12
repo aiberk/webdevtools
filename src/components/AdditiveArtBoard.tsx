@@ -12,6 +12,7 @@ const AdditiveArtBoard = (props: Props) => {
           if (item.tag == "h1") {
             return (
               <h1
+                key={index}
                 style={{
                   ...props.data[index],
                   fontSize: `${props.data[index].fontSize}px`,
@@ -26,6 +27,7 @@ const AdditiveArtBoard = (props: Props) => {
           } else if (item.tag == "h2") {
             return (
               <h2
+                key={index}
                 style={{
                   ...props.data[index],
                   fontSize: `${props.data[index].fontSize}px`,
@@ -40,6 +42,7 @@ const AdditiveArtBoard = (props: Props) => {
           } else if (item.tag == "h3") {
             return (
               <h3
+                key={index}
                 style={{
                   ...props.data[index],
                   fontSize: `${props.data[index].fontSize}px`,
@@ -54,6 +57,7 @@ const AdditiveArtBoard = (props: Props) => {
           } else if (item.tag == "h4") {
             return (
               <h4
+                key={index}
                 style={{
                   ...props.data[index],
                   fontSize: `${props.data[index].fontSize}px`,
@@ -68,6 +72,7 @@ const AdditiveArtBoard = (props: Props) => {
           } else if (item.tag == "h5") {
             return (
               <h5
+                key={index}
                 style={{
                   ...props.data[index],
                   fontSize: `${props.data[index].fontSize}px`,
@@ -82,6 +87,7 @@ const AdditiveArtBoard = (props: Props) => {
           } else if (item.tag == "h6") {
             return (
               <h6
+                key={index}
                 style={{
                   ...props.data[index],
                   fontSize: `${props.data[index].fontSize}px`,
@@ -96,6 +102,7 @@ const AdditiveArtBoard = (props: Props) => {
           } else if (item.tag == "a") {
             return (
               <a
+                key={index}
                 href="#"
                 style={{
                   ...props.data[index],
@@ -111,6 +118,7 @@ const AdditiveArtBoard = (props: Props) => {
           } else if (item.tag == "caption") {
             return (
               <caption
+                key={index}
                 className="text-left"
                 style={{
                   ...props.data[index],
@@ -133,6 +141,7 @@ const AdditiveArtBoard = (props: Props) => {
           if (item.tag == "p") {
             return (
               <p
+                key={index}
                 style={{
                   ...props.data[index],
                   fontSize: `${props.data[index].fontSize}px`,

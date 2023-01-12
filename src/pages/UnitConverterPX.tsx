@@ -11,8 +11,9 @@ const UnitTypes = [
   { label: "IN", equation: 0.013888888888888888 },
   { label: "REM", equation: 0.0625 },
   { label: "EM", equation: 0.0625 },
-  { label: "Light Years", equation: 0.0625 },
-  { label: "Planck Length", equation: 0.0625 },
+  { label: "Didot Point", equation: 0.70373097935943 },
+  { label: "Light Years", equation: 2.796568016066e-20 },
+  { label: "Planck Length", equation: 1.653645625e31 },
 ];
 
 const UnitConverter = (props: Props) => {
