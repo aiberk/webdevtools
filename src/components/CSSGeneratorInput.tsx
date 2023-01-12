@@ -11,7 +11,6 @@ type Props = {
 };
 
 const CSSGeneratorInput = (props: Props) => {
-  console.log(props);
   return (
     <>
       <div className="max-w-lg flex flex-col justify-between dark:bg-zinc-800">
