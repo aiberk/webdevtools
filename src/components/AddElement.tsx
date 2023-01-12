@@ -11,7 +11,7 @@ type Props = {
 };
 
 const elementList = [
-  "Pick HTML Element",
+  "Pick Element",
   "h1",
   "h2",
   "h3",
