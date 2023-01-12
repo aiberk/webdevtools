@@ -54,13 +54,36 @@ function CSSDesignTokenGenerator() {
           Typography Token Generator
         </h1>
         <div
-          className={`w-full max-w-2xl overflow-hidden p-20`}
+          className={`w-full max-w-2xl overflow-hidden p-20 min-h-18 f-full`}
           style={{
             backgroundColor: `${artBoard}`,
             boxShadow: `0px -1px 5px 1px rgba(0,0,0,0.2)`,
           }}
         >
-          <AdditiveArtBoard data={appState} />
+          {appState.length == 0 ? (
+            <div className="pt-4 pb-4 flex flex-col gap-10">
+              {" "}
+              <h1 className="text-3xl text-center">
+                Your style sheet is empty 😅
+              </h1>
+              <h1 className="text-3xl text-center">
+                Use the right navigation to add elements or click below to add
+                some starter elements.
+              </h1>
+              <div className="flex justify-center">
+                <button
+                  className="bg-green-500 pt-1 pb-1 pr-4 pl-4 rounded-sm"
+                  onClick={() => {
+                    setAppState(starterData);
+                  }}
+                >
+                  Add Starter Elements
+                </button>
+              </div>
+            </div>
+          ) : (
+            <AdditiveArtBoard data={appState} />
+          )}
         </div>
       </div>
 
