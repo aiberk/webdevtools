@@ -23,7 +23,7 @@ const HtmlTags = (props: Props) => {
   console.log(data);
 
   return (
-    <div className="h-screen w-screen bg-zinc-700">
+    <div className="h-100 w-screen bg-zinc-700">
       <div className="w-full grid grid-col justify-center pt-28">
         {data?.map((item) => {
           return (
