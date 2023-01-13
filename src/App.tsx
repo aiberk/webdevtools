@@ -8,6 +8,7 @@ import CSSHeadingGenerator from "./pages/CSSHeadingGenerator";
 import CSSTextGenerator from "./pages/CSSTextGenerator";
 import CSSDesignTokenGenerator from "./pages/CSSDesignTokenGenerator";
 import Home from "./pages/Home";
+import HtmlTags from "./pages/HtmlTags";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -29,6 +30,7 @@ function App() {
           />
 
           <Route path="/" element={<Home />} />
+          <Route path="/tags/html" element={<HtmlTags />} />
         </Routes>
       </div>
     </BrowserRouter>
