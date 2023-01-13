@@ -16,7 +16,7 @@ const HtmlTags = (props: Props) => {
   }, []);
 
   const fetchData = () => {
-    return fetch(`https://abyiber.pythonanywhere.com/`)
+    return fetch(`https://abyiber.pythonanywhere.com/htmlTags/`)
       .then((response) => response.json())
       .then((actualData) => setData(actualData));
   };
@@ -41,21 +41,3 @@ const HtmlTags = (props: Props) => {
 };
 
 export default HtmlTags;
-
-// useEffect(() => {
-//   fetch(`https://abyiber.pythonanywhere.com/`)
-//     .then((response) => {
-//       // ...
-//     })
-//     .then((actualData) => {
-//       setData(actualData);
-//       setError(null);
-//     })
-//     .catch((err) => {
-//       setError(err.message);
-//       setData(null);
-//     })
-//     .finally(() => {
-//       setLoading(false);
-//     });
-// }, []);
