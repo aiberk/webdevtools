@@ -58,6 +58,18 @@ function NavBar({}: Props) {
           </NavLink>
         </div>
 
+        <div className="w-full p-4 dark:text-zinc-100">
+          <NavLink
+            className={({ isActive }) => (isActive ? "font-bold" : undefined)}
+            to="/tags/html"
+          >
+            <div className="flex flex-row gap-2  align-middle items-center w-full">
+              <p className="text-xl">📖</p>
+              <h4 className="w-40"> HTML Dictionary</h4>{" "}
+            </div>
+          </NavLink>
+        </div>
+
         {/* <div className="w-full p-4 dark:text-zinc-100">
           <NavLink
             className={({ isActive }) => (isActive ? "font-bold" : undefined)}
