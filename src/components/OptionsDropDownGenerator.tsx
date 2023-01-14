@@ -27,20 +27,14 @@ const OptionsDropDownGenerator = (props: Props) => {
   const handleOnClick = (title) => {
     props.setAppState(title);
   };
-  let displayText = (placeholder) => {
-    if (placeholder == "") {
-      return props.title;
-    } else {
-      return props.placeholder;
-    }
-  };
+
   return (
     <div className="flex flex-col gap-4">
       <CSSGeneratorInput
         unit={""}
         type="text"
         label={`${props.title} artboard text`}
-        value={`${displayText(props.placeholder)}`}
+        value={`${props.placeholder}`}
         changeCSS={(css) => props.placeHolderFunction(css)}
         tag={props.tag}
       />

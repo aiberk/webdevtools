@@ -24,10 +24,10 @@ const HtmlTags = (props: Props) => {
 
   return (
     <div className="h-100 w-screen bg-zinc-700">
-      <div className="w-full grid grid-col justify-center pt-28">
+      <div className="w-full grid grid-col justify-center gap-5  pt-28">
         {data?.map((item) => {
           return (
-            <div className="p-6 flex flex-row gap-10 align-middle items-center">
+            <div className="p-6 flex flex-row gap-10 align-middle items-center bg-zinc-600 rounded-lg">
               <h1 className="p-5 bg-zinc-800 rounded-lg text-orange-500">
                 {item.Tag}
               </h1>

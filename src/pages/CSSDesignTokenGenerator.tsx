@@ -135,43 +135,45 @@ function CSSDesignTokenGenerator() {
 
         {/* Preview Tab */}
         {editorStatus == "preview" ? (
-          <div className="flex  md:p-0 p-10 flex-col w-full md:max-w-xs gap-4  ">
-            <OptionsDropDown
-              children={
-                <>
-                  {" "}
-                  <CSSGeneratorInput
-                    unit={"rgb"}
-                    type="color"
-                    label={"Artboard Color"}
-                    value={artBoard}
-                    changeCSS={(css) => setArtBoard(css)}
-                  />
-                  <div className="flex flex-col justify-center">
+          <>
+            <div className="flex  md:p-0 p-10 flex-col w-full md:max-w-xs gap-4  ">
+              <OptionsDropDown
+                children={
+                  <>
                     {" "}
-                    <button
-                      className="text-white bg-green-500 pt-1 pb-1 pr-2 pl-2 rounded-sm w-full mt-4 "
-                      onClick={() => {
-                        setAppState(starterData);
-                      }}
-                    >
-                      Use Starter Elements
-                    </button>
-                    <button
-                      className="text-white bg-red-500 pt-1 pb-1 pr-2 pl-2 rounded-sm w-full mt-4 "
-                      onClick={() => {
-                        setAppState([]);
-                      }}
-                    >
-                      Reset Artboard
-                    </button>
-                  </div>
-                </>
-              }
-              title={"Artboard"}
-              tag={"Setting"}
-            />
-          </div>
+                    <CSSGeneratorInput
+                      unit={"rgb"}
+                      type="color"
+                      label={"Artboard Color"}
+                      value={artBoard}
+                      changeCSS={(css) => setArtBoard(css)}
+                    />
+                  </>
+                }
+                title={"Artboard"}
+                tag={"Setting"}
+              />
+            </div>
+            <div className="flex flex-col justify-center">
+              {" "}
+              <button
+                className="text-white bg-green-500 pt-1 pb-1 pr-2 pl-2 rounded-sm w-full mt-4 "
+                onClick={() => {
+                  setAppState(starterData);
+                }}
+              >
+                Use Starter Elements
+              </button>
+              <button
+                className="text-white bg-red-500 pt-1 pb-1 pr-2 pl-2 rounded-sm w-full mt-4 "
+                onClick={() => {
+                  setAppState([]);
+                }}
+              >
+                Reset Artboard
+              </button>
+            </div>
+          </>
         ) : undefined}
 
         {/*  Elements Tab */}
