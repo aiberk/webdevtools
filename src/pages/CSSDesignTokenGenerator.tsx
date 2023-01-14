@@ -6,12 +6,14 @@ import OptionsDropDownGenerator from "../components/OptionsDropDownGenerator";
 import GenerateTokens from "../components/GenerateTokens";
 import AddElement from "../components/AddElement";
 import AdditiveArtBoard from "../components/AdditiveArtBoard";
+import FontPicker from "font-picker-react";
 
 function CSSDesignTokenGenerator() {
   const [previewHeading, setPreviewHeading] = useState<string>("Heading");
   const [previewText, setPreviewText] = useState<string>(Lorem);
   const [editorStatus, setEditorStatus] = useState<string>("elements");
   const [artBoard, setArtBoard] = useState<string>("rgb(255,255,255)");
+  const [font, setFont] = useState<string>("Nanum Gothic");
 
   const [appState, setAppState] = useState(starterData);
 
@@ -64,7 +66,7 @@ function CSSDesignTokenGenerator() {
           {appState.length == 0 ? (
             <div className="pt-4 pb-4 flex flex-col gap-10">
               {" "}
-              <h1 className="text-3xl text-center">
+              <h1 className="text-3xl text-center apply-font">
                 Your style sheet is empty 😅
               </h1>
               <h1 className="text-3xl text-center">
@@ -148,6 +150,22 @@ function CSSDesignTokenGenerator() {
                       value={artBoard}
                       changeCSS={(css) => setArtBoard(css)}
                     />
+                    {/* <FontPicker
+                      pickerId=""
+                      apiKey={import.meta.env.VITE_GOOGLE_FONT_API_KEY}
+                      activeFontFamily={font}
+                      onChange={(e) => {
+                        setFont(e)
+                      }}
+                    />
+                    <FontPicker
+                      pickerId="1"
+                      apiKey={import.meta.env.VITE_GOOGLE_FONT_API_KEY}
+                      activeFontFamily={font}
+                      onChange={(font) => {
+                        console.log(font);
+                      }}
+                    /> */}
                   </>
                 }
                 title={"Artboard"}
