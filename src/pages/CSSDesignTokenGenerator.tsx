@@ -150,22 +150,6 @@ function CSSDesignTokenGenerator() {
                       value={artBoard}
                       changeCSS={(css) => setArtBoard(css)}
                     />
-                    {/* <FontPicker
-                      pickerId=""
-                      apiKey={import.meta.env.VITE_GOOGLE_FONT_API_KEY}
-                      activeFontFamily={font}
-                      onChange={(e) => {
-                        setFont(e)
-                      }}
-                    />
-                    <FontPicker
-                      pickerId="1"
-                      apiKey={import.meta.env.VITE_GOOGLE_FONT_API_KEY}
-                      activeFontFamily={font}
-                      onChange={(font) => {
-                        console.log(font);
-                      }}
-                    /> */}
                   </>
                 }
                 title={"Artboard"}
